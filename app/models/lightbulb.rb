@@ -1,0 +1,2 @@
+class Lightbulb < ApplicationRecord
+end
