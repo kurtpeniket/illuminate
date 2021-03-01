@@ -4,6 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: fill 0.5s ease forwards 3s;
 }
 
 #logo path:nth-child(1){
@@ -64,3 +65,13 @@ stroke-dasharray: 172px;
     stroke-dashoffset: 0px;
   }
 }
+
+@keyframes fill{
+  from {
+    fill: transparent;
+  }
+  to{
+    fill: #fbd46d;
+  }
+}
+
