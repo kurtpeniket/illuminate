@@ -1,1 +1,11 @@
-index.html.erb
+<%= form_tag lightbulbs_path, method: 'GET' do |f| %>
+  <div class="form create-form" >
+    <%= text_field_tag :bulb_type %>
+    <%= text_field_tag :fitting %>
+    <%= submit_tag :submit %>
+  </div>
+<% end %>
+
+<% @lightbulbs.each do |lightbulb| %>
+<p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
+<% end %>

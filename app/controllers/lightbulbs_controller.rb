@@ -1,6 +1,6 @@
 class LightbulbsController < ApplicationController
   def index
-    @ligthbulbs = Lightbulb.all
+    @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting))
   end
 
   def show
