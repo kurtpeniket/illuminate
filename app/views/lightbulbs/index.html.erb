@@ -1,22 +1,62 @@
-<%= form_tag (@lightbulb), method: 'GET' do |f| %>
-  <div class="form create-form" >
-    <h2>Bulb Type</h2>
-    <%= radio_button_tag :bulb_type, 'Incandescent'%> Incandescent
-    <%= radio_button_tag :bulb_type, 'CFL' %> CFL
-    <%= radio_button_tag :bulb_type, 'LED' %> LED
-    <%= radio_button_tag :bulb_type, 'Halogen' %> Halogen
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <div class="col-6">
+      <%= form_tag (@lightbulb), method: 'GET' do |f| %>
+        <div class="form create-form" >
+          <h2>Bulb Type</h2>
+          <br>
+          <label>
+            <%= radio_button_tag :bulb_type, 'Incandescent'%>
+            <%= image_tag("incandescent.png", width: "100")  %>
+          </label>
+          <label>
+            <%= radio_button_tag :bulb_type, 'CFL' %>
+            <%= image_tag("cfl.png", width: "60")  %>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="col-6">
+      <label>
+        <%= radio_button_tag :bulb_type, 'LED' %>
+        <%= image_tag("led.png", width: "200")  %>
+      </label>
+      <label>
+        <%= radio_button_tag :bulb_type, 'Halogen' %>
+        <%= image_tag("halogen.jpg", width: "160")  %>
+      </label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center my-3">
+      <div class="col-6">
+        <div class="form create-form" >
+          <h2>Fitting</h2>
+          <br>
+          <label>
+            <%= radio_button_tag :fitting, 'Screw' %>
+            <%= image_tag("screw.jpg", width: "95") %>
+          </label>
+          <label>
+            <%= radio_button_tag :fitting, 'Bayonet' %>
+            <%= image_tag("bayonet.jpg", width: "100")  %>
+          </label>
+          <label>
+          <%= radio_button_tag :fitting, 'Other' %>
+          <%= image_tag("other.jpg", width: "90") %>
+          </label>
+          <%= submit_tag :Filter %>
+        </div>
+        <% end %>
+        <br>
+        <% @lightbulbs.each do |lightbulb| %>
+          <p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
+        <% end %>
+      </div>
   </div>
-  <div class="form create-form" >
-    <h2>Fitting</h2>
-    <%= radio_button_tag :fitting, 'Screw' %> Screw
-    <%= radio_button_tag :fitting, 'Bayoney' %> Bayonet
-    <%= radio_button_tag :fitting, 'Other' %> Other
-    <%= submit_tag :Filter %>
-  </div>
-<% end %>
+</div>
 
-<% @lightbulbs.each do |lightbulb| %>
-<p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
-<% end %>
+
 
 
