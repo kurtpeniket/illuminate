@@ -1,11 +1,22 @@
-<%= form_tag lightbulbs_path, method: 'GET' do |f| %>
+<%= form_tag (@lightbulb), method: 'GET' do |f| %>
   <div class="form create-form" >
-    <%= text_field_tag :bulb_type %>
-    <%= text_field_tag :fitting %>
-    <%= submit_tag :submit %>
+    <h2>Bulb Type</h2>
+    <%= radio_button_tag :bulb_type, 'Incandescent'%> Incandescent
+    <%= radio_button_tag :bulb_type, 'CFL' %> CFL
+    <%= radio_button_tag :bulb_type, 'LED' %> LED
+    <%= radio_button_tag :bulb_type, 'Halogen' %> Halogen
+  </div>
+  <div class="form create-form" >
+    <h2>Fitting</h2>
+    <%= radio_button_tag :fitting, 'Screw' %> Screw
+    <%= radio_button_tag :fitting, 'Bayoney' %> Bayonet
+    <%= radio_button_tag :fitting, 'Other' %> Other
+    <%= submit_tag :Filter %>
   </div>
 <% end %>
 
 <% @lightbulbs.each do |lightbulb| %>
 <p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
 <% end %>
+
+
