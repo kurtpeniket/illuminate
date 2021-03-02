@@ -1,5 +1,5 @@
 <div class="container">
-
+  
   <div class="slidecontainer text-center m-5">
     <h2>Brightness</h2>
     <div id="slider"></div>
@@ -7,43 +7,48 @@
     <div id="pips-range"></div>
     <%# <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
     <p>Value: <span id="demo"></span></p> %>
-
   </div>
 
   <div class="row justify-content-center my-3">
     <div class="col-6">
+
+  <div class="row justify-content-center my-3 ml-2">
+    <div class="col-sm-12 col-lg-6 ">
+
       <%= form_tag (@lightbulb), method: 'GET' do |f| %>
         <div class="form create-form" >
           <h2>Bulb Type</h2>
+          <p>Select the bulb shape you are looking for...</p>
           <br>
-          <label>
+          <label >
             <%= radio_button_tag :bulb_type, 'Incandescent'%>
-            <%= image_tag("incandescent.png", width: "100")  %>
+            <%= image_tag("incandescent.png", width: "100", class: "mr-5")  %>
           </label>
           <label>
             <%= radio_button_tag :bulb_type, 'CFL' %>
-            <%= image_tag("cfl.png", width: "60")  %>
+            <%= image_tag("cfl.png", width: "100", height: "180", class: "mr-2")%>
           </label>
         </div>
       </div>
     </div>
     <div class="row justify-content-center my-3">
-      <div class="col-6">
+      <div class="col-sm-12 col-lg-6">
       <label>
         <%= radio_button_tag :bulb_type, 'LED' %>
-        <%= image_tag("led.png", width: "200")  %>
+        <%= image_tag("led.png", width: "160") %>
       </label>
       <label>
         <%= radio_button_tag :bulb_type, 'Halogen' %>
-        <%= image_tag("halogen.jpg", width: "160")  %>
+        <%= image_tag("halogen.jpg", width: "160", class: "ml-2")  %>
       </label>
       </div>
     </div>
     <br>
     <div class="row justify-content-center my-3">
-      <div class="col-6">
+      <div class="col-sm-12 col-lg-6">
         <div class="form create-form" >
           <h2>Fitting</h2>
+          <p>Now select the fitting...</p>
           <br>
           <label>
             <%= radio_button_tag :fitting, 'Screw' %>
@@ -63,9 +68,10 @@
         <br>
         <% @lightbulbs.each do |lightbulb| %>
           <p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
+          <%= image_tag lightbulb.image, width: "200"%>
         <% end %>
       </div>
-  </div>
+    </div>
 </div>
 
 
