@@ -4,6 +4,7 @@
       <%= form_tag (@lightbulb), method: 'GET' do |f| %>
         <div class="form create-form" >
           <h2>Bulb Type</h2>
+          <p>Select the bulb shape you are looking for...</p>
           <br>
           <label>
             <%= radio_button_tag :bulb_type, 'Incandescent'%>
@@ -33,6 +34,7 @@
       <div class="col-6">
         <div class="form create-form" >
           <h2>Fitting</h2>
+          <p>Now select the fitting...</p>
           <br>
           <label>
             <%= radio_button_tag :fitting, 'Screw' %>
@@ -52,9 +54,10 @@
         <br>
         <% @lightbulbs.each do |lightbulb| %>
           <p> <%= lightbulb.bulb_type %> / <%= lightbulb.fitting %> </p>
+          <%= image_tag lightbulb.image, width: "200"%>
         <% end %>
       </div>
-  </div>
+    </div>
 </div>
 
 
