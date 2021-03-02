@@ -1,7 +1,6 @@
-// illumate
 #logo{
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: fill 0.5s ease forwards 3s;
@@ -35,27 +34,27 @@
   animation: line-anim 2s ease forwards 0.15s;
 }
 #logo path:nth-child(6){
-stroke-dasharray: 94px;
+  stroke-dasharray: 94px;
   stroke-dashoffset: 94px;
   animation: line-anim 2s ease forwards 0.18s;
 }
 #logo path:nth-child(7){
-stroke-dasharray: 160px;
+  stroke-dasharray: 160px;
   stroke-dashoffset: 160px;
   animation: line-anim 2s ease forwards 0.21s;
 }
 #logo path:nth-child(8){
-stroke-dasharray: 187px;
+  stroke-dasharray: 187px;
   stroke-dashoffset: 187px;
   animation: line-anim 2s ease forwards 0.24s;
 }
 #logo path:nth-child(9){
-stroke-dasharray: 123px;
+  stroke-dasharray: 123px;
   stroke-dashoffset: 123px;
   animation: line-anim 2s ease forwards 0.27s;
 }
 #logo path:nth-child(10){
-stroke-dasharray: 172px;
+  stroke-dasharray: 172px;
   stroke-dashoffset: 172px;
   animation: line-anim 2s ease forwards 0.30s;
 }
