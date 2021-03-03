@@ -31,7 +31,9 @@ import { slider } from "components/slider"
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  console.log("hello");
   const sliderTag = document.getElementById('slider');
+  console.log(sliderTag);
   if (sliderTag) {
     slider();
   };
