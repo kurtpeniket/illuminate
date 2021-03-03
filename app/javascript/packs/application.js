@@ -34,6 +34,7 @@ document.addEventListener('turbolinks:load', () => {
   if (sliderTag) {
     slider();
   };
+
 });
 
 
