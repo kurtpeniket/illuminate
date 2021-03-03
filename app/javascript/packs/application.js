@@ -26,12 +26,11 @@ require("channels")
 import "bootstrap";
 
 import { slider } from "components/slider"
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initMapbox } from '../plugins/init_mapbox'
 
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
+  initMapbox();
   if (sliderTag) {
     slider();
   };
