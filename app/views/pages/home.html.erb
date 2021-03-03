@@ -1,25 +1,24 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1556401615-c909c3d67480?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1556401615-c909c3d67480?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
   <div class="logo">
     <%= render 'shared/illuminate' %>
   </div>
   <div id="intro">
     <p>How many coders does it take to change a lightbulb?</p>
-    <a class="btn btn-lg btn-primary" href="#">Upload photo</a>
+    <a class="btn btn-lg btn-ghost mt-5 mr-2" href="#">Upload photo</a>
   </div>
 </div>
 
 <div class="row m-2">
   <div class="col-12 col-md-8">
     <div id="small-card" class="row m-2">
-      <div class="card-product">
+      <div class="card-product lax lax_preset_fadeInOut:197.75:0">
         <%= image_tag "home_lb1.jpg", alt: "lightbulb_1" %>
         <div class="card-product-infos">
           <h2>Need a new lightbulb?</h2>
           <p>We've got a <strong>bright idea</strong> to help you find a replacement.</p>
         </div>
       </div>
-
-      <div class="card-product">
+      <div class="card-product lax lax_preset_fadeInOut:197.75:0 lax_preset_hueRotate:791:360">
         <div class="card-product-infos">
           <h2>Upload your bulb</h2>
           <p>Let us get you <strong>out of the dark</strong> and find you the bulb you need.</p>
@@ -27,7 +26,7 @@
         <%= image_tag "home_lb2.jpg", alt: "lightbulb_2" %>
       </div>
 
-      <div class="card-product">
+      <div class="card-product lax lax_preset_fadeInOut:197.75:0 lax_preset_hueRotate:791:360">
         <%= image_tag "home_lb3.jpg", alt: "lightbulb_3" %>
         <div class="card-product-infos">
           <h2>Light up your life</h2>
@@ -37,12 +36,13 @@
     </div>
   </div>
 
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-4 mt-3">
     <div id="big-card" class="card-category w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/home_bulbs.jpg')">
       <p>Get started</p>
     </div>
   </div>
 </div>
+
 
 <div class="footer footer-links">
     <a href="#"><i class="fab fa-github"></i></a>

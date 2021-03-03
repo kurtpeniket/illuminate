@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 
-import { slider } from "components/slider"
+import { slider } from "components/slider";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   if (sliderTag) {
     slider();
   };
+
 });
 
 
