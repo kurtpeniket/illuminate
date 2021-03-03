@@ -12,7 +12,9 @@ class LightbulbsController < ApplicationController
     @markers = @lightbulbs.geocoded.map do |lightbulb|
       {
         lat: lightbulb.latitude,
-        lng: lightbulb.longitude
+        lng: lightbulb.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { lightbulb: lightbulb }),
+        image_url: helpers.asset_url('lightbulb_icon')
       }
     end
   end
