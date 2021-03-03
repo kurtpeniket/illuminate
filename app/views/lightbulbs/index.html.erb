@@ -2,6 +2,7 @@
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-9 col-lg-6 ">
       <%= form_tag (@lightbulb), method: 'GET' do |f| %>
+      <%= hidden_field_tag :brightness %>
       <div class="form create-form" >
         <h5><center>What does your bulb look like?</center></h5>
         <label>
@@ -14,21 +15,21 @@
           <%= image_tag("cfl.jpg", width: "130")%>
           <p><center>CFL</center></p>
         </label>
-      </div>
+       </div>
     </div>
-    </div>
-  <div class="row justify-content-center my-3 ml-2">
-    <div class="col-sm-12 col-lg-6">
-    <label>
-      <%= radio_button_tag :bulb_type, 'LED' %>
-      <%= image_tag("led.jpg", width: "130") %>
-      <p><center>LED</center></p>
-    </label>
-    <label>
-      <%= radio_button_tag :bulb_type, 'Halogen' %>
-      <%= image_tag("halogen.jpg", width: "130") %>
-      <p><center>Halogen</center></p>
-    </label>
+   </div>
+    <div class="row justify-content-center my-3 ml-2">
+      <div class="col-sm-12 col-lg-6">
+      <label>
+        <%= radio_button_tag :bulb_type, 'LED' %>
+        <%= image_tag("led.jpg", width: "130") %>
+        <p><center>LED</center></p>
+      </label>
+      <label>
+        <%= radio_button_tag :bulb_type, 'Halogen' %>
+        <%= image_tag("halogen.jpg", width: "130") %>
+        <p><center>Halogen</center></p>
+      </label>
     </div>
   </div>
   <div class="row justify-content-center my-3 ml-1">
@@ -50,6 +51,12 @@
         <%= image_tag("other.jpg", width: "85") %>
         <p><center>Other</center></p>
         </label>
+        <div class="slidecontainer text-center m-5">
+          <h2>Brightness</h2>
+          <div id="slider-step-value"></div>
+          <div id="slider"></div>
+          <div id="pips-range"></div>
+        </div>
         <center><%= submit_tag value="Find my bulb!", class: "btn btn-lg btn-primary" %></center>
       </div>
       <% end %>
@@ -73,6 +80,15 @@
     </div>
   <% end %>
 </div>
+
+  
+  
+
+
+    
+        
+      
+     
 
 
 
