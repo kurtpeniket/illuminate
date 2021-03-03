@@ -25,7 +25,7 @@ export const slider = () => {
   const brightness = document.getElementById('brightness');
 
   slider.noUiSlider.on('update', function (values, handle) {
-      stepSliderValueElement.innerHTML = values[handle];
+      // stepSliderValueElement.innerHTML = values[handle];
       brightness.value = values[handle];
   });
 };
