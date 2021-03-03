@@ -22,8 +22,10 @@ export const slider = () => {
   });
 
   const stepSliderValueElement = document.getElementById('slider-step-value');
+  const brightness = document.getElementById('brightness');
 
   slider.noUiSlider.on('update', function (values, handle) {
       stepSliderValueElement.innerHTML = values[handle];
+      brightness.value = values[handle];
   });
 };
