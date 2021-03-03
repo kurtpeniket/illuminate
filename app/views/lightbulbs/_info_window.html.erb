@@ -1,0 +1,11 @@
+<div class="card">
+<%= image_tag "https://media.autoexpress.co.uk/image/private/s--xLU6xl8a--/v1594991800/autoexpress/2020/07/Ferrari%20SF90-8.jpg" %>
+    <div class="card-body">
+        <h6 class="card-title font-weight-bold"> <%= car.brand %> - <%= car.model %> </h6>
+        <p class="card-text font-italic"> <%= car.address %> </p>
+        <div class="d-flex justify-content-around align-items-center">
+            <h5 class="font-weight-bold">£<%= car.price_per_day %> </h5>
+            <%= link_to "Book now", car_path(car), class: "btn btn-success" %>
+        </div>
+    </div>
+</div>
