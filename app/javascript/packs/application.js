@@ -36,3 +36,4 @@ document.addEventListener('turbolinks:load', () => {
   slider();
 });
 
+
