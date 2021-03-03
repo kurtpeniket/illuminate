@@ -1,3 +1,4 @@
+import 'nouislider/distribute/nouislider.css';
 import noUiSlider from 'nouislider/distribute/nouislider.js';
 
 export const slider = () => {
