@@ -1,4 +1,3 @@
-import 'nouislider/distribute/nouislider.css';
 import noUiSlider from 'nouislider/distribute/nouislider.js';
 
 export const slider = () => {
@@ -10,7 +9,6 @@ export const slider = () => {
       'max': [2600]
   }
   const slider = document.getElementById('slider');
-  console.log(slider);
   noUiSlider.create(slider, {
       start: [450],
       snap: true,
