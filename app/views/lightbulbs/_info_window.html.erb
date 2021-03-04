@@ -1,11 +1,11 @@
-<div class="card">
-<%= image_tag "home_bulbs.jpg" %>
-    <div class="card-body">
-        <h6 class="card-title font-weight-bold"> <%= shop.name %></h6>
-        <p class="card-text font-italic"> <%= shop.address %> </p>
-        <div class="d-flex justify-content-around align-items-center">
-            <h5 class="font-weight-bold">£9.99</h5>
-            <%= link_to "Buy now", lightbulb_path(@lightbulb), class: "btn btn-secondary" %>
-        </div>
+<div>
+    <div class="row justify-content-around font-weight-bold">
+        <h4> <%= shop.name %> </h4>
+        <h5 class="text-success text-bold">in stock</h5>
+    </div>
+    <p class="text-muted text-center my-3"> <%= shop.address %> </p>
+    <div class="row justify-content-around">
+        <h3 class="bg-dark text-light font-weight-bold">&nbsp £6 &nbsp</h3>
+        <%= link_to "Buy now", 'https://www.diy.com/departments/diall-e27-15w-1521lm-gls-neutral-white-led-light-bulb/3663602667261_BQ.prd', class: "btn btn-sm btn-secondary" %>
     </div>
 </div>

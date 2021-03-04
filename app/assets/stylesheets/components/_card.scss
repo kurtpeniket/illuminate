@@ -62,19 +62,19 @@
   }
   
   .card-trip > img {
-    height: 100px;
+    height: 150px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   
   .card-trip h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
   }
   
   .card-trip p {
-    font-size: 20px;
+    font-size: 18px;
     opacity: .7;
     margin: 0;
   }
@@ -92,6 +92,12 @@
     position: absolute;
     right: 16px;
     top: -40px;
-    width: 100px;
+    width: 80px;
   }
 
+  .card-trip-infos .card-trip-label {
+    position: absolute;
+    right: 270px;
+    top: -130px;
+    width: 110px;
+  }
