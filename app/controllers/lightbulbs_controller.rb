@@ -1,6 +1,7 @@
 class LightbulbsController < ApplicationController
   def index
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
+    #@lightbulb = Lightbulb.first only if there is a search...
   end
 
   def show
