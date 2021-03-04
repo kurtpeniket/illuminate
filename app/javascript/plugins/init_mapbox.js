@@ -34,6 +34,7 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+    map.addControl(new mapboxgl.NavigationControl());
   }
 };
 
