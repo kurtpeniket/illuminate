@@ -70,7 +70,11 @@
       <div class="col-12 col-md-8">
         <div id="small-card" class="row m-2">
           <div class="card-product">
-            <%= image_tag lightbulb.image%>
+            <% if lightbulb.bulb_type == 'LED' %>
+              <%= image_tag 'led_real.jpg' %>
+            <% else %>
+              <%= image_tag lightbulb.image%>
+              <% end %>
             <div class="card-product-infos">
               <h2><%= link_to lightbulb.bulb_type, lightbulb_path(lightbulb) %></h2>
               <p><%= lightbulb.fitting %></p>
