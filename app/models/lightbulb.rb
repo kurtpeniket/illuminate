@@ -4,10 +4,6 @@ class Lightbulb < ApplicationRecord
   scope :fitting, -> (fitting) { where fitting: fitting }
   scope :brightness, -> (brightness) { where brightness: brightness }
 
-  # Geocoder
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
-
   has_many :orders
   has_many :shops, through: :orders
 end
