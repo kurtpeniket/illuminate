@@ -1,11 +1,11 @@
 <div class="card">
 <%= image_tag "home_bulbs.jpg" %>
     <div class="card-body">
-        <h6 class="card-title font-weight-bold"> <%= lightbulb.brand %> - <%= lightbulb.bulb_type %> </h6>
-        <p class="card-text font-italic"> <%= lightbulb.address %> </p>
+        <h6 class="card-title font-weight-bold"> <%= shop.name %></h6>
+        <p class="card-text font-italic"> <%= shop.address %> </p>
         <div class="d-flex justify-content-around align-items-center">
             <h5 class="font-weight-bold">£9.99</h5>
-            <%= link_to "Buy now", lightbulb_path(lightbulb), class: "btn btn-secondary" %>
+            <%= link_to "Buy now", lightbulb_path(@lightbulb), class: "btn btn-secondary" %>
         </div>
     </div>
 </div>

@@ -72,7 +72,7 @@
           <div class="card-product">
             <%= image_tag lightbulb.image%>
             <div class="card-product-infos">
-              <h2><%= lightbulb.bulb_type %></h2>
+              <h2><%= link_to lightbulb.bulb_type, lightbulb_path(lightbulb) %></h2>
               <p><%= lightbulb.fitting %></p>
             </div>
           </div>
