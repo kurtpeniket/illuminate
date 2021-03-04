@@ -1,6 +1,6 @@
 <div class="container index-container mt-5">
   <div class="row justify-content-center my-3 ml-2">
-    <div class="col-sm-9 col-lg-6 ">
+    <div class="col-sm-12 col-lg-6">
       <%= form_tag (@lightbulb), method: 'GET' do |f| %>
       <%= hidden_field_tag :brightness %>
       <div class="form create-form" >
@@ -17,9 +17,9 @@
         </label>
        </div>
     </div>
-   </div>
-    <div class="row justify-content-center my-3 ml-2">
-      <div class="col-sm-12 col-lg-6">
+  </div>
+  <div class="row justify-content-center my-3 ml-2">
+    <div class="col-sm-12 col-lg-6">
       <label>
         <%= radio_button_tag :bulb_type, 'LED' %>
         <%= image_tag("led.jpg", width: "130") %>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="row justify-content-center my-3 ml-1">
-    <div class="col-sm- col-lg-6">
+    <div class="col-sm-12 col-lg-6">
       <div class="form create-form" >
         <h5><center>And what about the fitting?</center></h5>
         <label>
@@ -47,15 +47,16 @@
           <p><center>Bayonet</center></p>
         </label>
         <label>
-        <%= radio_button_tag :fitting, 'Other' %>
-        <%= image_tag("other.jpg", width: "85") %>
-        <p><center>Other</center></p>
+          <%= radio_button_tag :fitting, 'Other' %>
+          <%= image_tag("other.jpg", width: "85") %>
+          <p><center>Other</center></p>
         </label>
-        <div class="slidecontainer text-center m-5">
-          <h2>Brightness</h2>
+        <div class="slidecontainer text-center ml-3 mr-3 mb-5">
+          <h5>How bright would you like it?</h5>
           <div id="slider-step-value"></div>
           <div id="slider"></div>
           <div id="pips-range"></div>
+          <h6 class="mt-5">Lumens</h6>
         </div>
         <center><%= submit_tag value="Find my bulb!", class: "btn btn-lg btn-primary" %></center>
       </div>
@@ -63,7 +64,7 @@
     </div>
   </div>
   <br>
-  <h5><center>This is what you need...</center></h5>
+  <h5><center>Your bulb awaits...</center></h5>
   <% @lightbulbs.each do |lightbulb| %>
     <div class="row m-2">
       <div class="col-12 col-md-8">

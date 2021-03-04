@@ -10,10 +10,12 @@ class LightbulbsController < ApplicationController
     @shops = Shop.all
 
     #the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
-    @markers = @shops.geocoded.map do |shop|
+    @markers = @lightbulbs.geocoded.map do |lightbulb|
       {
-        lat: shop.latitude,
-        lng: shop.longitude
+        lat: lightbulb.latitude,
+        lng: lightbulb.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { lightbulb: lightbulb }),
+        image_url: helpers.asset_url('lightbulb_icon')
       }
     end
   end

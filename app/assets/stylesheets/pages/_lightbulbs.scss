@@ -9,6 +9,14 @@
     margin-top: 0;
   }
   .btn {
-    margin-top: 10px;
+    margin-top: 5px;
   }
+}
+
+.noUi-value {
+  color: $yellow;
+}
+
+.noUi-base {
+  background-image: linear-gradient(to right, #ffff00 20%, #fdfd96 20%, #fff8dc 80%, #fffacd 80%);
 }
