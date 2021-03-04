@@ -1,6 +1,5 @@
 <div class="container p-3">
     <div class="card-trip">
-        <h2 class="text-center text-secondary"><mark>Recomended</mark></h2>
         <img src= <%= @lightbulb.image %> />
         <div class="card-trip-infos">
             <div>
@@ -9,12 +8,13 @@
             <p><%= @lightbulb.fitting %></p>
             <p><%= @lightbulb.brightness %></p>
             </div>
-            <a class="btn btn-lg btn-secondary my-5">Buy now</a>
+            <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/recommended-stamp-2.png" class="card-trip-label "/>
+            <a class="btn btn-lg btn-secondary my-3">Buy now</a>
             <h2 class="card-trip-pricing">£9.99</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/B%26Q_company_logo.svg/1200px-B%26Q_company_logo.svg.png" class="card-trip-user avatar-bordered" />
         </div>
         
-        <div class="my-5" id="map"
+        <div class="my-1" id="map"
         style="width: 100%; height: 50vh;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
