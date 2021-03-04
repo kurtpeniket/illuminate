@@ -7,8 +7,9 @@ class LightbulbsController < ApplicationController
     @lightbulb = Lightbulb.find(params[:id])
     # raise
     @lightbulbs = Lightbulb.all
+    @shops = Shop.all
 
-    # the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
+    #the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
     @markers = @lightbulbs.geocoded.map do |lightbulb|
       {
         lat: lightbulb.latitude,
