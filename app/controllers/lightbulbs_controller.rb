@@ -5,7 +5,6 @@ class LightbulbsController < ApplicationController
 
   def show
     @lightbulb = Lightbulb.find(params[:id])
-    # raise
     @lightbulbs = Lightbulb.all
 
     # the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
