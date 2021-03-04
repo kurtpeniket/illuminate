@@ -66,23 +66,21 @@
   <br>
   <h5><center>Your bulb awaits...</center></h5>
   <% @lightbulbs.each do |lightbulb| %>
-    <div class="row justify-content-center m-2">
-      <div class="col-12 col-md-8">
-        <div id="small-card" class="row m-2">
-          <div class="card-product">
-            <% if lightbulb.bulb_type == 'LED' %>
-              <%= image_tag 'led_real.jpg' %>
-            <% else %>
-              <%= image_tag lightbulb.image%>
-              <% end %>
-            <div class="card-product-infos">
-              <h2><%= link_to lightbulb.bulb_type, lightbulb_path(lightbulb) %></h2>
-              <p><%= lightbulb.fitting %></p>
+    <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
+      <div class="row justify-content-center m-2">
+        <div class="col-12 col-md-8">
+          <div id="small-card" class="row m-2">
+            <div class="card-product">
+                <%= image_tag lightbulb.image%>
+              <div class="card-product-infos">
+                <h2><%= lightbulb.bulb_type %></h2>
+                <p><%= lightbulb.fitting %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
