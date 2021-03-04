@@ -15,7 +15,7 @@ class LightbulbsController < ApplicationController
         lat: shop.latitude,
         lng: shop.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { shop: shop}),
-        image_url: helpers.asset_url('lightbulb_icon')
+        image_url: helpers.asset_url('lightbulb_icon.png')
       }
     end
   end
