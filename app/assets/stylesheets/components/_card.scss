@@ -60,26 +60,25 @@
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
-  
+
   .card-trip > img {
     height: 150px;
     width: 100%;
     object-fit: contain;
   }
-  
+
   .card-trip h2 {
     font-size: 20px;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .card-trip p {
     font-size: 18px;
     opacity: .7;
     margin: 0;
   }
-  
-  
+
   .card-trip .card-trip-infos {
     padding: 16px;
     display: flex;
@@ -87,7 +86,7 @@
     align-items: flex-end;
     position: relative;
   }
-  
+
   .card-trip-infos .card-trip-user {
     position: absolute;
     right: 16px;
