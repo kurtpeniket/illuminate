@@ -1,13 +1,13 @@
 class LightbulbsController < ApplicationController
   def index
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
+    @queried = params[:bulb] || params[:fitting] || params[:brightness] 
     #@lightbulb = Lightbulb.first only if there is a search...
   end
 
   def show
     @lightbulb = Lightbulb.find(params[:id])
     @lightbulbs = Lightbulb.all
-    # raise
     @shops = Shop.all
     # the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
     @markers = @shops.geocoded.map do |shop|
