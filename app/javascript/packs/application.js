@@ -27,14 +27,15 @@ import "bootstrap";
 
 import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
+import { scroll } from 'components/scroll'
 
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
   initMapbox();
+  scroll();
   if (sliderTag) {
     slider();
   };
-
 });
 
 

@@ -1,18 +1,18 @@
-<div class="container index-container mt-5">
+<%= form_tag (@lightbulb), method: 'GET' do |f| %>
+ <div class="container index-container mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
-      <%= form_tag (@lightbulb), method: 'GET' do |f| %>
       <%= hidden_field_tag :brightness %>
       <div class="form create-form" >
         <h5><center>What does your bulb look like?</center></h5>
         <label>
           <%= radio_button_tag :bulb_type, 'Incandescent'%>
-          <%= image_tag("incandescent.jpg", width: "200")  %>
+          <%= image_tag("incandescent.jpg", width: "140")  %>
           <p><center>Incandescent</center></p>
         </label>
         <label>
           <%= radio_button_tag :bulb_type, 'CFL' %>
-          <%= image_tag("cfl.jpg", width: "200")%>
+          <%= image_tag("cfl.jpg", width: "140")%>
           <p><center>CFL</center></p>
         </label>
        </div>
@@ -22,12 +22,12 @@
     <div class="col-sm-12">
       <label>
         <%= radio_button_tag :bulb_type, 'LED' %>
-        <%= image_tag("led.jpg", width: "200") %>
+        <%= image_tag("led.jpg", width: "140") %>
         <p><center>LED</center></p>
       </label>
       <label>
         <%= radio_button_tag :bulb_type, 'Halogen' %>
-        <%= image_tag("halogen.jpg", width: "200") %>
+        <%= image_tag("halogen.jpg", width: "140") %>
         <p><center>Halogen</center></p>
       </label>
     </div>
@@ -58,11 +58,12 @@
           <div id="pips-range"></div>
           <h6 class="mt-5">Lumens</h6>
         </div>
-        <center><%= submit_tag value="Find my bulb!", class: "btn btn-lg btn-primary" %></center>
+        <center><%= submit_tag value="Find my bulb!", anchor: "results", class: "btn btn-lg btn-primary" %></center>
       </div>
       <% end %>
     </div>
   </div>
+  <a href="#results" class="hidden" data-params="<%=@queried%>" id="query-link" ></a>
   <br>
   <% if @lightbulbs.count > 0 %>
     <h5><center>This is what you need...</center></h5>
