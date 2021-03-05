@@ -32,7 +32,7 @@ import { scroll } from 'components/scroll'
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
   initMapbox();
-  scroll();
+  // scroll();
   if (sliderTag) {
     slider();
   };
