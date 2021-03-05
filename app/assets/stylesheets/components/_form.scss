@@ -15,6 +15,7 @@
 /* CHECKED STYLES */
 [type=radio]:checked + img {
   outline: 2px solid $yellow;
+  box-shadow: 0 0 15px rgba($yellow,1);
 }
 
 .form-inputs {

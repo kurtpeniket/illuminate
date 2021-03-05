@@ -1,7 +1,7 @@
-<div class="container index-container mt-5 ">
+<%= form_tag (@lightbulb), method: 'GET' do |f| %>
+ <div class="container index-container mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
-      <%= form_tag (@lightbulb), method: 'GET' do |f| %>
       <%= hidden_field_tag :brightness %>
       <div class="form create-form" >
         <h5><center>What does your bulb look like?</center></h5>
@@ -65,23 +65,39 @@
   </div>
   <a href="#results" class="hidden" data-params="<%=@queried%>" id="query-link" ></a>
   <br>
-  <h5><center>Your bulb awaits...</center></h5>
-  <% @lightbulbs.each do |lightbulb| %>
-    <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
-      <div id="results" class="row justify-content-center m-2">
-        <div class="col-12 col-md-8">
-          <div id="small-card" class="row m-2">
-            <div class="card-product">
-                <%= image_tag lightbulb.image%>
-              <div class="card-product-infos">
-                <h2><%= lightbulb.bulb_type %></h2>
-                <p><%= lightbulb.fitting %></p>
+  <% if @lightbulbs.count > 0 %>
+    <h5><center>This is what you need...</center></h5>
+    <% @lightbulbs.each do |lightbulb| %>
+      <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
+        <div class="row justify-content-center m-2">
+          <div class="col-12 col-md-8">
+            <div id="small-card" class="row m-2">
+              <div class="card-product">
+                  <%= image_tag lightbulb.image%>
+                <div class="card-product-infos">
+                  <h2><%= lightbulb.bulb_type %></h2>
+                  <p><%= lightbulb.fitting %></p>
+                  <p><%= lightbulb.brightness %> lumens</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <div class="row justify-content-center m-2">
+      <div class="col-12 col-md-8">
+        <div id="small-card" class="row m-2">
+          <div class="card-product">
+            <div class="card-product-infos">
+              <h2>No match for that bulb at the moment</h2>
+              <h3 class="pt-3">😢</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 

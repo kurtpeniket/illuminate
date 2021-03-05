@@ -21,10 +21,11 @@
 
   .card-product {
     width: 100%;
-    background-color: #4F8A8B;
+    background-color: #263238;
     padding: 10px;
     margin-left: 10%;
     margin-right: 10%;
+    border-radius: 5px;
     p {
       color: $yellow;
     }
@@ -50,5 +51,5 @@
 }
 
 .noUi-base {
-  background-image: linear-gradient(to right, #ffff00 20%, #fdfd96 20%, #fff8dc 80%, #fffacd 80%);
+  background-image: linear-gradient(to right, #fffacd 20%, #fff8dc 20%, #fdfd96 80%, #ffff00 80%);
 }
