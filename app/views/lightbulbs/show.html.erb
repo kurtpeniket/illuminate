@@ -1,25 +1,4 @@
 <div class="container p-3">
-
-  <div class="card-trip">
-    <img src= <%= @lightbulb.image %> />
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= @lightbulb.brand %></h2>
-        <p><%= @lightbulb.bulb_type %></p>
-        <p><%= @lightbulb.fitting %></p>
-        <p><%= @lightbulb.brightness %></p>
-      <%= link_to "Buy now", 'https://www.diy.com/departments/diall-e27-15w-1521lm-gls-neutral-white-led-light-bulb/3663602667261_BQ.prd', class: "btn btn-md btn-secondary my-3" %>
-      </div>
-      <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/recommended-stamp-2.png" class="card-trip-label "/>
-      <h2 class="card-trip-pricing pb-4">£9.99</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/B%26Q_company_logo.svg/1200px-B%26Q_company_logo.svg.png" class="card-trip-user avatar-bordered" />
-    </div>
-
-    <div class="my-1" id="map"
-    style="width: 100%; height: 50vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
     <div class="card-trip">
         <img src= <%= @lightbulb.image %> />
         <div class="card-trip-infos">
