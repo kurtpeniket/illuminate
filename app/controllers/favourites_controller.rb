@@ -13,7 +13,7 @@ end
 def destroy
   @favourite = Favourite.find(params[:id])
   @favourite.destroy
-  redirect_to lightbulb_favourites_path(@favourite.lightbulb)
+  redirect_to favourites_path
 end
 
 end
