@@ -1,4 +1,4 @@
-<%= form_tag (@lightbulb), method: 'GET' do |f| %>
+<%= form_tag lightbulbs_path, remote: true, method: 'GET' do |f| %>
  <div class="container index-container mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
@@ -32,86 +32,41 @@
       </label>
     </div>
   </div>
-  <div class="row justify-content-center my-3 ml-1">
-    <div class="col-sm-12 col-lg-6">
-      <div class="form create-form" >
-        <h5><center>And what about the fitting?</center></h5>
-        <label>
-          <%= radio_button_tag :fitting, 'Screw' %>
-          <%= image_tag("screw.jpg", width: "120") %>
-          <p><center>Screw</center></p>
-        </label>
-        <label>
-          <%= radio_button_tag :fitting, 'Bayonet' %>
-          <%= image_tag("bayonet.jpg", width: "120")  %>
-          <p><center>Bayonet</center></p>
-        </label>
-        <label>
-          <%= radio_button_tag :fitting, 'Other' %>
-          <%= image_tag("other.jpg", width: "120") %>
-          <p><center>Other</center></p>
-        </label>
-        <div class="slidecontainer text-center ml-3 mr-3 mb-5 mt-3">
-          <h5>How bright would you like it?</h5>
-          <div id="slider-step-value"></div>
-          <div id="slider"></div>
-          <div id="pips-range"></div>
-          <h6 class="mt-5">Lumens</h6>
-        </div>
-        <center><%= submit_tag value="Find my bulb!", anchor: "results", class: "btn btn-lg btn-primary" %></center>
+<div class="row justify-content-center my-3 ml-1">
+  <div class="col-sm-12 col-lg-6">
+    <div class="form create-form" >
+      <h5><center>And what about the fitting?</center></h5>
+      <label>
+        <%= radio_button_tag :fitting, 'Screw' %>
+        <%= image_tag("screw.jpg", width: "120") %>
+        <p><center>Screw</center></p>
+      </label>
+      <label>
+        <%= radio_button_tag :fitting, 'Bayonet' %>
+        <%= image_tag("bayonet.jpg", width: "120")  %>
+        <p><center>Bayonet</center></p>
+      </label>
+      <label>
+        <%= radio_button_tag :fitting, 'Other' %>
+        <%= image_tag("other.jpg", width: "120") %>
+        <p><center>Other</center></p>
+      </label>
+      <div class="slidecontainer text-center ml-3 mr-3 mb-5 mt-3">
+        <h5>How bright would you like it?</h5>
+        <div id="slider-step-value"></div>
+        <div id="slider"></div>
+        <div id="pips-range"></div>
+        <h6 class="mt-5">Lumens</h6>
       </div>
-      <% end %>
+      <center><%= submit_tag value="Find my bulb!", id: "submitBtn", anchor: "results", class: "btn btn-lg btn-primary" %></center>
     </div>
-  </div>
-  <a href="#results" class="hidden" data-params="<%=@queried%>" id="query-link" ></a>
-  <br>
-  <% if @lightbulbs.count > 0 %>
-    <h5><center>This is what you need...</center></h5>
-    <% @lightbulbs.each do |lightbulb| %>
-      <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
-        <div class="row justify-content-center m-2">
-          <div class="col-12 col-md-8">
-            <div id="small-card" class="row m-2">
-              <div class="card-product">
-                  <%= image_tag lightbulb.image%>
-                <div class="card-product-infos">
-                  <h2><%= lightbulb.bulb_type %></h2>
-                  <p><%= lightbulb.fitting %></p>
-                  <p><%= lightbulb.brightness %> lumens</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
     <% end %>
-  <% else %>
-    <div class="row justify-content-center m-2">
-      <div class="col-12 col-md-8">
-        <div id="small-card" class="row m-2">
-          <div class="card-product">
-            <div class="card-product-infos">
-              <h2>No match for that bulb at the moment</h2>
-              <h3 class="pt-3">😢</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
+<a href="#results" class="hidden" data-params="<%=@queried%>" id="query-link" ></a>
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h5 id="title"><center>This is what you need...</center></h5>
+<div id='index-lightbulbs'>
+  <%= render 'lightbulbs', lightbulbs: @lightbulbs %>
+</div>
