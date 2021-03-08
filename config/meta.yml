@@ -1,0 +1,5 @@
+meta_product_name: "Illuminate"
+meta_title: "Illuminate - Light up your life"
+meta_description: "Helping busy people get the lighbulb they need"
+meta_image: "home_bulbs.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

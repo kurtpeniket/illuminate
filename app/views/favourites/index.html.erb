@@ -1,25 +1,24 @@
- <div class="container index-container mt-5 ">
+<div class="container index-container mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
       <h1>Favourites</h1>
       <% @favourites.each do |favourite| %>
-        <%= link_to lightbulb_path(favourite.lightbulb), class: "link" do  %>
-          <div class="row justify-content-center m-2">
-            <div class="col-12 col-md-8">
-              <div id="small-card" class="row m-2">
-                <div class="card-product">
+       <%= link_to lightbulb_path(favourite.lightbulb), class: "link" do  %>
+        <div class="row justify-content-center m-2">
+          <div class="col-12 col-md-8">
+            <div id="small-card" class="row m-2">
+              <div class="card-product">
                   <%= image_tag favourite.lightbulb.image%>
-                  <div class="card-product-infos">
-                    <h2><%= favourite.lightbulb.bulb_type %></h2>
-                    <p><%= favourite.lightbulb.fitting %></p>
-                    <p><%= favourite.lightbulb.brightness %> lumens</p>
-                  </div>
-                </div>
+                <div class="card-product-infos">
+                  <h2><%= favourite.lightbulb.bulb_type %></h2>
+                  <p><%= favourite.lightbulb.fitting %></p>
+                  <p><%= favourite.lightbulb.brightness %> lumens</p>
+                  <p>
+                    <%= link_to "delete", lightbulb_favourite_path(favourite.lightbulb_id, favourite.id), method: :delete %>
+                  </p>
               </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
