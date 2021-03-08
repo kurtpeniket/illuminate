@@ -62,3 +62,13 @@
     text-decoration: none;
     color: #ff7171;
   }
+
+  .favourites {
+    .fa-trash-alt {
+      color: $yellow;
+      position: relative;
+      left: 55px;
+      top: 5px;
+      font-size: 15px;
+    }
+  }
