@@ -1,4 +1,4 @@
-<div class="container index-container mt-5 ">
+<div class="container index-container favourites mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
       <h1>Favourites</h1>
@@ -14,7 +14,7 @@
                     <p><%= favourite.lightbulb.fitting %></p>
                     <p><%= favourite.lightbulb.brightness %> lumens</p>
                     <p>
-                      <%= link_to "delete", favourite_path(favourite.id), method: :delete %>
+                      <%= link_to "", favourite_path(favourite.id), method: :delete, class: "fas fa-trash-alt"%>
                     </p>
                   </div>
                 </div>
