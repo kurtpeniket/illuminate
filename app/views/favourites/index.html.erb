@@ -11,6 +11,9 @@
             <h2><%= favourite.lightbulb.bulb_type %></h2>
             <p><%= favourite.lightbulb.fitting %></p>
             <p><%= favourite.lightbulb.brightness %> lumens</p>
+            <p>
+              <%= link_to "delete", lightbulb_favourite_path(favourite.lightbulb_id, favourite.id), method: :delete %>
+            </p>
           </div>
         </div>
       </div>
