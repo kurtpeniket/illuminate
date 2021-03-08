@@ -11,9 +11,10 @@ def create
   redirect_to lightbulb_favourites_path(@lightbulb)
 end
 
-
-# def favourite_params
-#   params.require(:favourite).permit(:user_id, :lightbulb_id)
-# end
+def destroy
+  @favourite = Favourite.find(params[:id])
+  @favourite.destroy
+  redirect_to lightbulb_favourites_path(@favourite.lightbulb)
+end
 
 end

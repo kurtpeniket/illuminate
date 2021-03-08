@@ -10,6 +10,7 @@
                   <h2><%= lightbulb.bulb_type %></h2>
                   <p><%= lightbulb.fitting %></p>
                   <p><%= lightbulb.brightness %> lumens</p>
+                  <%= link_to "Favourite", lightbulb_favourites_path(lightbulb), method: :post %>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ class LightbulbsController < ApplicationController
   def index
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
     # redirect_to lightbulbs_path
-    # @queried = params[:bulb] || params[:fitting] || params[:brightness] 
+    # @queried = params[:bulb] || params[:fitting] || params[:brightness]
     #@lightbulb = Lightbulb.first only if there is a search...
   end
 
@@ -20,4 +20,6 @@ class LightbulbsController < ApplicationController
       }
     end
   end
+
+
 end
