@@ -1,0 +1,33 @@
+   <% if @lightbulbs.count > 0 %>
+    <% @lightbulbs.each do |lightbulb| %>
+      <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
+        <div class="row justify-content-center m-2">
+          <div class="col-12 col-md-8">
+            <div id="small-card" class="row m-2">
+              <div class="card-product">
+                  <%= image_tag lightbulb.image%>
+                <div class="card-product-infos">
+                  <h2><%= lightbulb.bulb_type %></h2>
+                  <p><%= lightbulb.fitting %></p>
+                  <p><%= lightbulb.brightness %> lumens</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="row justify-content-center m-2">
+      <div class="col-12 col-md-8">
+        <div id="small-card" class="row m-2">
+          <div class="card-product">
+            <div class="card-product-infos">
+              <h2>No match for that bulb at the moment</h2>
+              <h3 class="pt-3">😢</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
