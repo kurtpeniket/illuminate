@@ -1,4 +1,4 @@
-<div class="container p-3">
+  <div class="container show-container p-3">
     <div class="card-trip">
         <img src= <%= @lightbulb.image %> />
         <div class="card-trip-infos">
@@ -7,6 +7,7 @@
             <p><%= @lightbulb.bulb_type %></p>
             <p><%= @lightbulb.fitting %></p>
             <p><%= @lightbulb.brightness %></p>
+            <%= link_to '', lightbulb_favourites_path(@lightbulb), method: :post, class: "fas fa-heart" %>
             </div>
             <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/recommended-stamp-2.png" class="card-trip-label "/>
             <%= link_to "Buy now", 'https://www.diy.com/departments/diall-e27-15w-1521lm-gls-neutral-white-led-light-bulb/3663602667261_BQ.prd', class: "btn btn-lg btn-secondary my-3" %>

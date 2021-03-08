@@ -40,3 +40,25 @@
     background: linear-gradient(#147EFF, #0F67DA);
     color: white;
   }
+
+  .index-container {
+    .fa-heart {
+      color: #f5c0c0;
+      position: relative;
+      left: 60px;
+      top: 10px;
+    }
+  }
+
+  .show-container {
+    .fa-heart {
+      color: #f5c0c0;
+      position: relative;
+      font-size: 30px;
+    }
+  }
+
+  .fa-heart:hover {
+    text-decoration: none;
+    color: #ff7171;
+  }
