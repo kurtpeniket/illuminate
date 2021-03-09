@@ -1,46 +1,25 @@
 require 'nokogiri'
 require 'open-uri'
 
-lumens_regex = /\d*lm/i
-bulb_regex = /\b(led|gls|clf|halogen|incandescent)\b/i
-price_regex = /£\d*/
 
 puts 'Cleaning DB...'
 Lightbulb.destroy_all
 Shop.destroy_all
 puts 'Seeding new DB...'
 
-def lightbulb_scrape(url, fitting)
-  file = open(url).read
-  doc = Nokogiri::HTML(file)
-  doc.search('.lii__offer').each do |element|
-    bulb_type = element.text.scan(bulb_regex).flatten[0],
-    brightness = element.text.scan(lumens_regex)[0],
-    price = element.text.scan(price_regex)[0],
-    url = element.search("a").attribute("href").value,
-    image = element.search("img#product_image").attribute("src").value
-    # p screw
-  end
+ScrapeJob.perform_now
 
-  Lightbulb.new(
-    bulb_type: bulb_type,
-    fitting: fitting,
-    brand: 'Screwfix',
-    brightness: brightness,
-    price: price,
-    url: url,
-    image: image
-  )
-end
+puts 'Seeding complete!'
 
-# SCREW
-lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=es|ses&page_size=100', 'Screw')
 
-# BAYONET
-lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=bc#category=cat8350001&capfittingtype=bc&page_size=100', 'Bayonet')
 
-# OTHER
-lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=gu10&page_size=100', 'Other')
+
+
+
+
+
+
+
 
 # bulbs = [
 #   ['Incandescent', 'Screw', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTPo2aFELgiaJwN2sJA3Lez7ElffrJ0qa5ApGvFXVkhxJDtxcqPUgEYNA-YMyiFpeb3XT_yAmwT--hIt6vlI-NdEc7J0t7pfwdCrIkoQt6SOAMofZV318bg3A&usqp=CAE'],
@@ -95,42 +74,3 @@ lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat
 #   number += 1
 # end
 
-
-def banq_lightbulb_scrape(url, fitting)
-  lumens_regex = /\d*lm/i
-  bulb_type_regex = /\b(led|gls|incandescent|clf|halogen)\b/i
-  price_regex = /£\d*/i
-  
-  file = open(url).read
-  doc = Nokogiri::HTML(file)
-  results = doc.search('li')
-  
-  results.each do |element|
-    url_search = element.search("a").attribute("href")
-    img_search = element.search("img").attribute("src")
-    if img_search
-      img = img_search.value
-    end
-    if url_search
-      url = "https://www.diy.com/#{url_search.value}"
-    end
-    price = element.text.scan(price_regex).first.to_s
-    brightness = element.text.scan(lumens_regex).first.to_s
-    bulb_type = element.text.scan(bulb_type_regex).flatten[0]
-
-    Lightbulb.new(
-      bulb_type: bulb_type,
-      brand: "B&Q",
-      fitting: fitting,
-      brightness: brightness,
-      image: img,
-      # url: url
-    )
-  end
-end
-
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=B22', 'Bayonet')
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=E27', 'Screw')
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=GU10', 'Other')
-
-puts 'Seeding complete!'
