@@ -1,0 +1,9 @@
+#favourites {
+  list-style: none;
+  li {
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
