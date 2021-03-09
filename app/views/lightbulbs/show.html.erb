@@ -9,7 +9,7 @@
         <p><%= @lightbulb.brightness %> lumens</p>
         <%= link_to '', lightbulb_favourites_path(@lightbulb), method: :post, class: "fas fa-heart" %>
       </div>
-      <%= link_to "Buy now", @lightbulb.url, class: "btn btn-lg btn-secondary my-3" %>
+      <%= link_to "Buy now", @lightbulb.url, class: "btn btn-lg btn-secondary" %>
       <h3 class="font-weight-bold my-4"><%= @lightbulb.price %></h3>
       <%= if @lightbulb.brand == 'Screwfix'
         image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
@@ -23,13 +23,13 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <hr>
-    <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><h2 class="card-trip-pricing"><%= @lightbulb.price %></h2><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
+    <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><p class="card-trip-pricing"><%= @lightbulb.price %></p><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
     <hr>
-    <div class="d-flex justify-content-around"><p>B&Q</p><h2 class="card-trip-pricing">£9.99</h2><%= image_tag "b&q.png", class: "card-trip-user avatar-bordered" %><a href="https://www.screwfix.com/p/tcp-la60e2oww2527-led-gls-es-smart-light-bulb-warm-white-8w-806lm/828hk" class="btn btn-secondary">Buy now</a></div>
+    <div class="d-flex justify-content-around"><p>B&Q</p><p class="card-trip-pricing">£9.99</p><%= image_tag "b&q.png", class: "card-trip-user avatar-bordered" %><a href="https://www.screwfix.com/p/tcp-la60e2oww2527-led-gls-es-smart-light-bulb-warm-white-8w-806lm/828hk" class="btn btn-secondary">Buy now</a></div>
     <hr>
-    <div class="d-flex justify-content-around"><p>Argos</p><h2 class="card-trip-pricing">£9.99</h2><%= image_tag "argos.png", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
+    <div class="d-flex justify-content-around"><p>Argos</p><p class="card-trip-pricing">£9.99</p><%= image_tag "argos.png", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
     <hr>
-    <div class="d-flex justify-content-around"><p>Homebase</p><h2 class="card-trip-pricing">£9.99</h2><%= image_tag "homebase.jpg", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
+    <div class="d-flex justify-content-around"><p>Homebase</p><p class="card-trip-pricing">£9.99</p><%= image_tag "homebase.jpg", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
     <hr>
   </div>
 </div>
