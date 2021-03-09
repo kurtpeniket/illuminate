@@ -13,9 +13,9 @@
       <h3 class="font-weight-bold my-4"><%= @lightbulb.price %></h3>
       <%= if @lightbulb.brand == 'Screwfix'
         image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
-      else
+        else
         image_tag "b&q.png", class:"card-trip-user avatar-bordered"
-      end %>
+        end %>
     </div>
     <div class="my-1" id="map"
     style="width: 100%; height: 50vh;"
