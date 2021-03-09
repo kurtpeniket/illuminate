@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 
+
 puts 'Cleaning DB...'
 Lightbulb.destroy_all
 Shop.destroy_all
@@ -76,7 +77,7 @@ def bandq_lightbulb_scrape(url, fitting)
   file = URI.open(url)
   doc = Nokogiri::HTML(file)
   results = doc.search('li')
-  
+
   results.each do |element|
     url_search = element.search("a").attribute("href")
     img_search = element.search("img").attribute("src")
@@ -106,8 +107,8 @@ def bandq_lightbulb_scrape(url, fitting)
   end
 end
 
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=B22', 'Bayonet')
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=E27', 'Screw')
-bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=GU10', 'Other')
+# bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=B22', 'Bayonet')
+# bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=E27', 'Screw')
+# bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=GU10', 'Other')
 
 puts 'Seeding complete!'
