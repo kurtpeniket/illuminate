@@ -1,17 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
 require 'nokogiri'
 require 'open-uri'
 
 lumens_regex = /\d*lm/i
 bulb_regex = /\b(led|gls|clf|halogen|incandescent)\b/i
 price_regex = /£\d*/
-# img_regex = /"https:\/\/([^"]*)"/
-# gls_regex = /\b(gls|incandescent)\b/i
-# clf_regex = /\b(clf)\b/i
-# halogen_regex = /\b(halogen)\b/i
-# fitting_regex = /\b(es|bc)\b/i
+
+puts 'Cleaning DB...'
+Lightbulb.destroy_all
+Shop.destroy_all
+puts 'Seeding new DB...'
 
 def lightbulb_scrape(url, fitting)
   file = open(url).read
@@ -98,4 +95,42 @@ lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat
 #   number += 1
 # end
 
-puts 'Seeding complete'
+
+def banq_lightbulb_scrape(url, fitting)
+  lumens_regex = /\d*lm/i
+  bulb_type_regex = /\b(led|gls|incandescent|clf|halogen)\b/i
+  price_regex = /£\d*/i
+  
+  file = open(url).read
+  doc = Nokogiri::HTML(file)
+  results = doc.search('li')
+  
+  results.each do |element|
+    url_search = element.search("a").attribute("href")
+    img_search = element.search("img").attribute("src")
+    if img_search
+      img = img_search.value
+    end
+    if url_search
+      url = "https://www.diy.com/#{url_search.value}"
+    end
+    price = element.text.scan(price_regex).first.to_s
+    brightness = element.text.scan(lumens_regex).first.to_s
+    bulb_type = element.text.scan(bulb_type_regex).flatten[0]
+
+    Lightbulb.new(
+      bulb_type: bulb_type,
+      brand: "B&Q",
+      fitting: fitting,
+      brightness: brightness,
+      image: img,
+      # url: url
+    )
+  end
+end
+
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=B22', 'Bayonet')
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=E27', 'Screw')
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=GU10', 'Other')
+
+puts 'Seeding complete!'
