@@ -1,8 +1,47 @@
 require 'nokogiri'
 require 'open-uri'
 
-# types = ['Halogen', 'LED', 'CFL', 'Incandescent']
-# fittings = ['Bayonet', 'Screw', 'Other']
+lumens_regex = /\d*lm/i
+bulb_regex = /\b(led|gls|clf|halogen|incandescent)\b/i
+price_regex = /£\d*/
+
+puts 'Cleaning DB...'
+Lightbulb.destroy_all
+Shop.destroy_all
+puts 'Seeding new DB...'
+
+def lightbulb_scrape(url, fitting)
+  file = open(url).read
+  doc = Nokogiri::HTML(file)
+  doc.search('.lii__offer').each do |element|
+    bulb_type = element.text.scan(bulb_regex).flatten[0],
+    brightness = element.text.scan(lumens_regex)[0],
+    price = element.text.scan(price_regex)[0],
+    url = element.search("a").attribute("href").value,
+    image = element.search("img#product_image").attribute("src").value
+    # p screw
+  end
+
+  Lightbulb.new(
+    bulb_type: bulb_type,
+    fitting: fitting,
+    brand: 'Screwfix',
+    brightness: brightness,
+    price: price,
+    url: url,
+    image: image
+  )
+end
+
+# SCREW
+lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=es|ses&page_size=100', 'Screw')
+
+# BAYONET
+lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=bc#category=cat8350001&capfittingtype=bc&page_size=100', 'Bayonet')
+
+# OTHER
+lightbulb_scrape('https://www.screwfix.com/c/electrical-lighting/light-bulbs/cat8350001?capfittingtype=gu10&page_size=100', 'Other')
+
 # bulbs = [
 #   ['Incandescent', 'Screw', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTPo2aFELgiaJwN2sJA3Lez7ElffrJ0qa5ApGvFXVkhxJDtxcqPUgEYNA-YMyiFpeb3XT_yAmwT--hIt6vlI-NdEc7J0t7pfwdCrIkoQt6SOAMofZV318bg3A&usqp=CAE'],
 #   ['Incandescent', 'Bayonet', 'https://cdn.shopify.com/s/files/1/0023/3822/6228/products/GLS_Clear_BC_800x.jpg?v=1579789654'],
@@ -55,13 +94,6 @@ require 'open-uri'
 #   )
 #   number += 1
 # end
-
-# puts 'Seeding complete'
-
-puts 'Cleaning DB...'
-Lightbulb.destroy_all
-Shop.destroy_all
-puts 'Seeding new DB...'
 
 
 def banq_lightbulb_scrape(url, fitting)
