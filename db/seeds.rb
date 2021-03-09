@@ -11,16 +11,6 @@ ScrapeJob.perform_now
 
 puts 'Seeding complete!'
 
-
-
-
-
-
-
-
-
-
-
 # bulbs = [
 #   ['Incandescent', 'Screw', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTPo2aFELgiaJwN2sJA3Lez7ElffrJ0qa5ApGvFXVkhxJDtxcqPUgEYNA-YMyiFpeb3XT_yAmwT--hIt6vlI-NdEc7J0t7pfwdCrIkoQt6SOAMofZV318bg3A&usqp=CAE'],
 #   ['Incandescent', 'Bayonet', 'https://cdn.shopify.com/s/files/1/0023/3822/6228/products/GLS_Clear_BC_800x.jpg?v=1579789654'],
@@ -74,3 +64,50 @@ puts 'Seeding complete!'
 #   number += 1
 # end
 
+def validate(variable)
+  return variable != nil && variable.length > 2
+end
+
+def bandq_lightbulb_scrape(url, fitting)
+  lumens_regex = /\d*lm/i
+  bulb_type_regex = /\b(led|gls|incandescent|clf|halogen)\b/i
+  price_regex = /£\d{1,2}|\.\d{1,2}/i
+  
+  file = URI.open(url)
+  doc = Nokogiri::HTML(file)
+  results = doc.search('li')
+  
+  results.each do |element|
+    url_search = element.search("a").attribute("href")
+    img_search = element.search("img").attribute("src")
+    if img_search
+      image = img_search.value
+    end
+    if url_search
+      url = "https://www.diy.com/#{url_search.value}"
+    end
+    price = element.text.scan(price_regex).first.to_s
+    brightness = element.text.scan(lumens_regex).first.to_s
+    bulb_type = element.text.scan(bulb_type_regex).flatten[0]
+
+    if validate(bulb_type) && validate(brightness) && validate(price) && validate(image) && validate(url)
+      Lightbulb.create(
+        bulb_type: bulb_type,
+        brand: "B&Q",
+        fitting: fitting,
+        brightness: brightness,
+        price: price,
+        image: image,
+        url: url
+      )
+    else 
+      puts "Invalid data"
+    end
+  end
+end
+
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=B22', 'Bayonet')
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=E27', 'Screw')
+bandq_lightbulb_scrape('https://www.diy.com/departments/lighting/light-bulbs/DIY780138.cat?Cap+fitting+code=GU10', 'Other')
+
+puts 'Seeding complete!'
