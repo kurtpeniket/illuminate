@@ -57,14 +57,17 @@
 
   .card-trip {
     overflow: hidden;
-    background: white;
+    background: #263238;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    color: white;
+    padding: 20px;
   }
 
   .card-trip > img {
     height: 150px;
     width: 150px;
     object-fit: contain;
+    border-radius: 50%;
   }
 
   .card-trip h2 {
@@ -99,4 +102,11 @@
     right: 270px;
     top: -120px;
     width: 100px;
+  }
+
+  .card-trip-infos {
+    .btn-secondary {
+      margin-bottom: 70px;
+      width: 150px;
+    }
   }
