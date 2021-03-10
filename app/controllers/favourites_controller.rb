@@ -7,13 +7,19 @@ end
 def create
   @lightbulb = Lightbulb.find(params[:lightbulb_id])
   @user = current_user.id
-  @favourite = Favourite.create(user_id: @user, lightbulb_id: @lightbulb.id)
+  @favourite = Favourite.new(user_id: @user, lightbulb_id: @lightbulb.id)
+  if @favourite.save
+    flash[:notice] = "Saved to favourites!"
+    redirect_to lightbulbs_path anchor: "title"
+  end
 end
 
 def destroy
   @favourite = Favourite.find(params[:id])
-  @favourite.destroy
-  redirect_to favourites_path
+  if @favourite.destroy
+    flash[:alert] = "Favorite removed!"
+    redirect_to favourites_path
+  end
 end
 
 def update
