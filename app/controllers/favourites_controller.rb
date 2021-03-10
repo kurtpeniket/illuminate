@@ -10,7 +10,7 @@ def create
   @favourite = Favourite.new(user_id: @user, lightbulb_id: @lightbulb.id)
   if @favourite.save
     flash[:notice] = "Saved to favourites!"
-    redirect_to request.referrer
+    redirect_to lightbulbs_path anchor: "title"
   end
 end
 

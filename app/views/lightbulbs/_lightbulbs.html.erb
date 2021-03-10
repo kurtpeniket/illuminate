@@ -15,7 +15,7 @@
                   <h2><%= lightbulb.bulb_type %></h2>
                   <p><%= lightbulb.fitting %></p>
                   <p><%= lightbulb.brightness %> lumens</p>
-                  <%= link_to '', lightbulb_favourites_path(lightbulb), method: :post, class: "fas fa-heart" %>
+                  <%= link_to '', lightbulb_favourites_path(lightbulb), remote: true, method: :post, class: "fas fa-heart" %>
                 </div>
               </div>
             </div>
