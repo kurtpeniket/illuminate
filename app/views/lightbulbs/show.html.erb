@@ -25,14 +25,17 @@
     <hr>
     <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><p class="card-trip-pricing"><%= @lightbulb.price %></p><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
     <hr>
+    <% if @similar_bulb.length > 0 %>
     <div class="d-flex justify-content-around"><p><%= @similar_bulb.first.brand %></p><p class="card-trip-pricing"><%= @similar_bulb.first.price %></p>
-    <%= if @similar_bulb.first.brand == 'Screwfix'
-          image_tag "screwfix.png", class: "card-trip-user avatar-bordered"
-        else
-          image_tag "b&q.png", class: "card-trip-user avatar-bordered" 
-        end %>
-      <a href="https://www.screwfix.com/p/tcp-la60e2oww2527-led-gls-es-smart-light-bulb-warm-white-8w-806lm/828hk" class="btn btn-secondary">Buy now</a></div>
+      <%= if @similar_bulb.first.brand == 'Screwfix'
+            image_tag "screwfix.png", class: "card-trip-user avatar-bordered"
+          else
+            image_tag "b&q.png", class: "card-trip-user avatar-bordered" 
+          end %>
+      <%= link_to "Buy now", @similar_bulb.first.url, class: "btn btn-secondary" %>
+      </div>
     <hr>
+    <% end %>
     <div class="d-flex justify-content-around"><p>Argos</p><p class="card-trip-pricing">£9.99</p><%= image_tag "argos.png", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
     <hr>
     <div class="d-flex justify-content-around"><p>Homebase</p><p class="card-trip-pricing">£9.99</p><%= image_tag "homebase.jpg", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
