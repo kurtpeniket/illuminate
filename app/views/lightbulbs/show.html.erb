@@ -4,12 +4,15 @@
     <div class="card-trip-infos">
       <div>
         <h2><%= @lightbulb.brand %></h2>
-        <p><%= @lightbulb.bulb_type %></p>
-        <p><%= @lightbulb.fitting %></p>
-        <p><%= @lightbulb.brightness %> lumens</p>
-        <%= link_to '', lightbulb_favourites_path(@lightbulb), method: :post, class: "fas fa-heart" %>
+        <div class="d-flex">
+          <p class="mr-1"><%= @lightbulb.bulb_type %></p>
+          <p class="mr-1"><%= @lightbulb.fitting %></p>
+          <p><%= @lightbulb.brightness %> lumens</p>
+        </div>
       </div>
-      <%= link_to "Buy now", @lightbulb.url, class: "btn btn-lg btn-secondary" %>
+      <div class="d-flex justify-content-end">
+      <%= link_to '', lightbulb_favourites_path(@lightbulb), method: :post, class: "fas fa-heart" %>
+      </div>
       <h3 class="font-weight-bold my-4"><%= @lightbulb.price %></h3>
       <%= if @lightbulb.brand == 'Screwfix'
         image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
@@ -17,28 +20,33 @@
         image_tag "b&q.png", class:"card-trip-user avatar-bordered"
         end %>
     </div>
+    <%= link_to "Buy now", @lightbulb.url, class: "btn btn-lg btn-block btn-secondary mb-4" %>
+
     <div class="my-1" id="map"
     style="width: 100%; height: 50vh;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <hr>
-    <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><p class="card-trip-pricing ml-2"><%= @lightbulb.price %></p><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered ml-2" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
-    <hr>
-    <% if @similar_bulb.length > 0 %>
-    <div class="d-flex justify-content-around"><p><%= @similar_bulb.first.brand %></p><p class="card-trip-pricing"><%= @similar_bulb.first.price %></p>
-      <%= if @similar_bulb.first.brand == 'Screwfix'
-            image_tag "screwfix.png", class: "card-trip-user avatar-bordered"
-          else
-            image_tag "b&q.png", class: "card-trip-user avatar-bordered" 
-          end %>
-      <%= link_to "Buy now", @similar_bulb.first.url, class: "btn btn-secondary" %>
-      </div>
-    <hr>
-    <% end %>
-    <div class="d-flex justify-content-around"><p>Argos</p><p class="card-trip-pricing">£9.99</p><%= image_tag "argos.png", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
-    <hr>
-    <div class="d-flex justify-content-around"><p>Homebase</p><p class="card-trip-pricing mr-3">£9.99</p><%= image_tag "homebase.jpg", class: "card-trip-user avatar-bordered mr-2" %><a class="btn btn-secondary mr-2">Buy now</a></div>
-    <hr>
+    <div >
+      <hr>
+      <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><p class="card-trip-pricing ml-2"><%= @lightbulb.price %></p><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered ml-2" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
+      <hr>
+      <% if @similar_bulb.length > 0 %>
+      <div class="d-flex justify-content-around"><p><%= @similar_bulb.first.brand %></p><p class="card-trip-pricing"><%= @similar_bulb.first.price %></p>
+        <%= if @similar_bulb.first.brand == 'Screwfix'
+              image_tag "screwfix.png", class: "card-trip-user avatar-bordered"
+            else
+              image_tag "b&q.png", class: "card-trip-user avatar-bordered"
+            end %>
+        <%= link_to "Buy now", @similar_bulb.first.url, class: "btn btn-secondary" %>
+        </div>
+      <hr>
+      <% end %>
+      <div class="d-flex justify-content-around"><p>Argos</p><p class="card-trip-pricing ml-2">£9.99</p><%= image_tag "argos.png", class: "card-trip-user avatar-bordered" %><a class="btn btn-secondary">Buy now</a></div>
+      <hr>
+      <div class="d-flex justify-content-around"><p>Wickes</p><p class="card-trip-pricing ml-2"> £9.99</p><%= image_tag "wickes.jpeg", class: "card-trip-user avatar-bordered ml-1" %><a class="btn btn-secondary ml-1">Buy now</a></div>
+      <hr>
+
+    </div>
   </div>
 </div>

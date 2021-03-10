@@ -12,7 +12,7 @@ ScrapeJob.perform_now
 
 shops_details = [
   ['Argos', '66 Cheapside, London, UK'],
-  ['Homebase', '255 Finchley Rd, London, UK'],
+  ['Wickes', '255 Finchley Rd, London, UK'],
   ['B&Q', '304-322 Norwood Road, London, UK'],
   ['screwfix', '107 Queensway, London, UK']
 ]
