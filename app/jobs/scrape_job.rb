@@ -17,7 +17,7 @@ class ScrapeJob < ApplicationJob
   def screwfix_scrape(url, fitting)
     lumens_regex = /\d*lm/i
     bulb_regex = /\b(led|gls|clf|halogen|incandescent)\b/i
-    price_regex = /£\d{1,2}|\.\d{1,2}/i
+    price_regex = /£\d+(?:[.,]\d+)?/i
 
     file = URI.open(url)
     # file = RestClient.get(url).body
@@ -48,7 +48,7 @@ class ScrapeJob < ApplicationJob
   def bandq_lightbulb_scrape(url, fitting)
     lumens_regex = /\d*lm/i
     bulb_type_regex = /\b(led|gls|incandescent|clf|halogen)\b/i
-    price_regex = /£\d{1,2}|\.\d{1,2}/i
+    price_regex = /£\d+(?:[.,]\d+)?/i
 
     file = URI.open(url)
     doc = Nokogiri::HTML(file)
