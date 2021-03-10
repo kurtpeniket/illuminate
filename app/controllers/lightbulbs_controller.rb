@@ -12,7 +12,8 @@ class LightbulbsController < ApplicationController
     @shops = Shop.all
 
     # Search for similar to above but different same brand
-    @similar_bulb = Lightbulb.where(bulb_type: @lightbulb[:bulb_type], fitting: @lightbulb[:fitting]) && Lightbulb.where.not(brand: @lightbulb[:brand])
+    @similar_bulb = Lightbulb.where(bulb_type: @lightbulb[:bulb_type], fitting: @lightbulb[:fitting], brand: "B&Q") 
+    #&& Lightbulb.where.not(brand: @lightbulb[:brand])
 
     # the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
     @markers = @shops.geocoded.map do |shop|
