@@ -1,11 +1,6 @@
-<div>
-  <div class="d-flex justify-content-around font-weight-bold">
-    <p> <%= shop.name %> </p>
-    <p class="text-success">in stock</p>
-  </div>
-  <p class="text-muted text-center px-2 py-2"> <%= shop.address %> </p>
-  <div class="d-flex justify-content-around">
-    <p class="text-dark font-weight-bold">£9.99</p>
-    <%= link_to "Buy now", 'https://www.screwfix.com/p/tcp-la60e2oww2527-led-gls-es-smart-light-bulb-warm-white-8w-806lm/828hk', class: "btn btn-sm btn-secondary" %>
-  </div>
+<p class="text-dark"><%= shop.name %></p>
+<p class="text-success mb-2">in stock</p>
+<div class="d-flex justify-content-around">
+<!--   <p class="text-dark font-weight-bold">£9.99</p> -->
+  <%= link_to "Buy now", 'https://www.screwfix.com/p/tcp-la60e2oww2527-led-gls-es-smart-light-bulb-warm-white-8w-806lm/828hk', class: "btn btn-sm btn-secondary" %>
 </div>
