@@ -1,8 +1,10 @@
 import Sortable from 'sortablejs';
 
 const initSortable = () => {
-  const list = document.querySelector('#results');
-  Sortable.create(list);
+  let el = document.getElementById('favourites');
+  if (el) {
+    let sortable = Sortable.create(el, { animation: 150 });
+  }
 };
 
 export { initSortable };
