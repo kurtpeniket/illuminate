@@ -27,6 +27,7 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
     <div >
       <hr>
       <div class="d-flex justify-content-around"><p><%= @lightbulb.brand %></p><p class="card-trip-pricing ml-2"><%= @lightbulb.price %></p><%= image_tag "screwfix.png", class: "card-trip-user avatar-bordered ml-2" %><%= link_to "Buy now", @lightbulb.url, class: "btn btn-secondary" %></div>
@@ -48,5 +49,6 @@
       <hr>
 
     </div>
+
   </div>
 </div>
