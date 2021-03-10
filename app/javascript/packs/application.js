@@ -27,9 +27,10 @@ import "bootstrap";
 
 import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
-// import { scroll } from 'components/scroll'
-import { initSortable } from "../plugins/init_sortable";
-// import { initSortable } from '../plugins/init_sortable'
+import { scroll } from 'components/scroll'
+import { initSortable } from '../plugins/init_sortable'
+
+
 
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
@@ -40,5 +41,3 @@ document.addEventListener('turbolinks:load', () => {
     slider();
   };
 });
-
-

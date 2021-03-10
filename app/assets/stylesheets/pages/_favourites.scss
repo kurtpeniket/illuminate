@@ -1,5 +1,6 @@
 #favourites {
   list-style: none;
+  padding: 0;
   li {
     cursor: grab;
     &:active {
