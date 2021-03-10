@@ -52,12 +52,15 @@
         <p><center>Other</center></p>
       </label>
       <div class="slidecontainer text-center ml-3 mr-3 mb-5 mt-3">
-        <h5>How bright would you like it?</h5>
+        <h5 class="mb-5">How bright would you like it?</h5>
         <div id="slider-step-value"></div>
         <div id="slider"></div>
         <div id="pips-range"></div>
-        <h6 class="mt-5">Lumens</h6>
       </div>
+
+      <div id="slider-step-value">
+      </div>
+
       <center><%= submit_tag value="Find my bulb!", id: "submitBtn", anchor: "results", class: "btn btn-lg btn-primary" %></center>
     </div>
     <% end %>

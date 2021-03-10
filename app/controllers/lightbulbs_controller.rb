@@ -20,6 +20,4 @@ class LightbulbsController < ApplicationController
       }
     end
   end
-
-
 end
