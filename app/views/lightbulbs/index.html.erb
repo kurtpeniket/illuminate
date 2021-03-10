@@ -1,5 +1,47 @@
+<div class="modal fade gls-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content p-5">
+      <h5>
+        "An<mark>incandescent</mark> light bulb, incandescent lamp or incandescent light globe is an electric light with a wire filament heated until it glows. The filament is enclosed in a glass bulb with a vacuum or inert gas to protect the filament from oxidation."
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade cfl-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content p-5">
+      <h5>
+        "A <mark>compact fluorescent lamp (CFL)</mark>, also called compact fluorescent light, energy-saving light and compact fluorescent tube, is a fluorescent lamp designed to replace an incandescent light bulb; some types fit into light fixtures designed for incandescent bulbs."
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade led-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content p-5">
+      <h5>
+        "An <mark>LED lamp or LED light bulb</mark> is an electric light for use in light fixtures that produces light using one or more light-emitting diodes (LEDs). LED lamps have a lifespan many times longer than equivalent incandescent lamps."
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade halogen-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content p-5">
+      <h5>
+        "A <mark>halogen lamp, also known as a tungsten halogen, quartz-halogen or quartz iodine lamp</mark>, is an incandescent lamp consisting of a tungsten filament sealed into a compact transparent envelope that is filled with a mixture of an inert gas and a small amount of a halogen such as iodine or bromine."
+      </h5>
+    </div>
+  </div>
+</div>
+
+
 <%= form_tag lightbulbs_path, remote: true, method: 'GET' do |f| %>
  <div class="container index-container mt-5 ">
+  <h4 class="p-3 text-center border-bottom border-primary">Tell us more about what you're looking for...</h4>
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
       <%= hidden_field_tag :brightness %>
@@ -9,11 +51,13 @@
           <%= radio_button_tag :bulb_type, 'Incandescent'%>
           <%= image_tag("incandescent.jpg", width: "140")  %>
           <p><center>GLS</center></p>
+          <button type="button" class="btn btn-help" data-toggle="modal" data-target=".gls-modal">?</button>
         </label>
         <label>
           <%= radio_button_tag :bulb_type, 'CFL' %>
           <%= image_tag("cfl.jpg", width: "140")%>
           <p><center>CFL</center></p>
+          <button type="button" class="btn btn-help" data-toggle="modal" data-target=".cfl-modal">?</button>
         </label>
        </div>
     </div>
@@ -24,11 +68,13 @@
         <%= radio_button_tag :bulb_type, 'LED' %>
         <%= image_tag("led.jpg", width: "140") %>
         <p><center>LED</center></p>
+        <button type="button" class="btn btn-help" data-toggle="modal" data-target=".led-modal">?</button>
       </label>
       <label>
         <%= radio_button_tag :bulb_type, 'Halogen' %>
         <%= image_tag("halogen.jpg", width: "140") %>
         <p><center>Halogen</center></p>
+        <button type="button" class="btn btn-help" data-toggle="modal" data-target=".halogen-modal">?</button>
       </label>
     </div>
   </div>

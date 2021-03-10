@@ -27,7 +27,7 @@ import "bootstrap";
 
 import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
-import { scroll } from 'components/scroll'
+// import { scroll } from 'components/scroll'
 import { initSortable } from "../plugins/init_sortable";
 // import { initSortable } from '../plugins/init_sortable'
 
