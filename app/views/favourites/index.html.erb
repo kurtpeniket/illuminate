@@ -1,32 +1,66 @@
 <div class="container index-container favourites mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
-      <h1>Favourites</h1>
+      <h1><center>Favourites</h1></center>
+      <h5><center>Organise your favourites below!</center></h5>
       <ul id="favourites">
         <% @favourites.order(order: :asc).each do |favourite| %>
           <li>
-            <%= link_to lightbulb_path(favourite.lightbulb), class: "link" do  %>
-              <div class="row justify-content-center m-2">
-                <div class="col-12 col-md-8">
-                  <div id="small-card" class="row m-2">
-                    <div class="card-product">
-                      <%= image_tag favourite.lightbulb.image%>
-                      <div class="card-product-infos">
-                        <h2><%= favourite.lightbulb.bulb_type %></h2>
-                        <p><%= favourite.lightbulb.fitting %></p>
-                        <p><%= favourite.lightbulb.brightness %> lumens</p>
-                        <p>
-                        <%= link_to "", favourite_path(favourite.id), method: :delete, class: "fas fa-trash-alt"%>
-                        </p>
+            <div class="row justify-content-center m-2">
+              <div class="col-12 col-md-8">
+                <div id="small-card" class="row m-2">
+                  <div class="card-product">
+                    <%= image_tag favourite.lightbulb.image%>
+                    <div class="card-product-infos">
+                      <h2><%= favourite.lightbulb.bulb_type %></h2>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-favourites" data-toggle="modal" data-target="<%= '#bulb-modal' + favourite.id.to_s %>">
+                        Info
+                      </button>
+                        <p><%= link_to "", favourite_path(favourite.id), method: :delete, class: "fas fa-trash-alt"%></p>
+                      <!-- Modal -->
+                      <div class="modal fade favourites-modal" id="<%= 'bulb-modal' + favourite.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header favourites-header">
+                              <h3 class="modal-title favourite-title w-50" id="exampleModalLabel"><%= favourite.lightbulb.brand%></h3>
+                              <%= if favourite.lightbulb.brand == 'Screwfix'
+                                image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
+                                else
+                                image_tag "b&q.png", class:"card-trip-user avatar-bordered"
+                                end %>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-between ">
+                              <div>
+                                <h6 class="favourite-properties"><%= favourite.lightbulb.bulb_type%></h6>
+                                <h6 class="favourite-properties"><%= favourite.lightbulb.fitting%></h6>
+                                <h6 class="favourite-properties"><%= favourite.lightbulb.brightness%> lumens</h6>
+                              </div>
+                              <div class="favourite-price">
+                                <h3><%= favourite.lightbulb.price%></h3>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <%= link_to "Buy now", favourite.lightbulb.url, class: "btn btn-primary" %>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            <% end %>
+            </div>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+
+
+
