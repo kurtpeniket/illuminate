@@ -28,17 +28,15 @@ import "bootstrap";
 import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
 import { scroll } from 'components/scroll'
-import Sortable from 'sortablejs'
+import { initSortable } from '../plugins/init_sortable'
 // import { initSortable } from '../plugins/init_sortable'
 
-document.addEventListener('turbolinks:load', () => {
-  var el = document.getElementById('favourites');
-  var sortable = Sortable.create(el, { animation: 150 });
-})
+
 
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
   initMapbox();
+  initSortable();
   // scroll();
   if (sliderTag) {
     slider();
@@ -46,3 +44,5 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
+
+import "controllers"
