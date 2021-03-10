@@ -3,20 +3,31 @@ require 'open-uri'
 
 
 puts 'Cleaning DB...'
+Favourite.destroy_all
 Lightbulb.destroy_all
 Shop.destroy_all
 puts 'Seeding new DB...'
 
 ScrapeJob.perform_now
 
+shops_details = [
+  ['Argos', '66 Cheapside, London, UK'],
+  ['Homebase', '255 Finchley Rd, London, UK'],
+  ['B&Q', '304-322 Norwood Road, London, UK'],
+  ['screwfix', '107 Queensway, London, UK']
+]
+
+number = 0
+
+4.times do
+  shop = Shop.create(
+    name: shops_details[number][0],
+    address: shops_details[number][1]
+  )
+  number += 1
+end
+
 puts 'Seeding complete!'
-
-
-
-
-
-
-
 
 
 
@@ -33,16 +44,6 @@ puts 'Seeding complete!'
 
 # brands = ['Philips', 'Ledvance', 'Radium', 'Duracell']
 # brightness = [450, 800, 1100, 1600, 2600]
-
-# shops_details = [
-#   ['B&Q', '88 Church Road, London, UK'],
-#   ['Homebase', '471 Station Road, London, UK'],
-#   ['Argos', '387 Queens Road, London, UK'],
-#   ['Screwfix', '91 High Street, London, UK']
-# ]
-
-# index = 0
-# number = 0
 
 
 # puts 'Creating 20 fake lightbulbs...'
@@ -66,11 +67,4 @@ puts 'Seeding complete!'
 # end
 
 
-# 4.times do
-#   shop = Shop.create(
-#     name: shops_details[number][0],
-#     address: shops_details[number][1]
-#   )
-#   number += 1
-# end
 
