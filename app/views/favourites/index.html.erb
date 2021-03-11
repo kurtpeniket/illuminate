@@ -15,7 +15,7 @@
                     <div class="card-product">
                       <%= image_tag favourite.lightbulb.image%>
                       <div class="card-product-infos">
-                        <h2><%= favourite.lightbulb.bulb_type %></h2>
+                        <h2 class="text-center mr-3"><%= favourite.lightbulb.bulb_type %></h2>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-favourites" data-toggle="modal" data-target="<%= '#bulb-modal' + favourite.id.to_s %>">
                           Info
