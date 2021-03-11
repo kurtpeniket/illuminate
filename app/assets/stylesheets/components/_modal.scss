@@ -29,9 +29,11 @@
 
 .btn-favourites {
   margin-top: 20px !important;
-  padding: 1px;
-  width: 60%;
-  background: $yellow;
+  padding: 1px 5px;
+  margin-top: 10px !important;
+  width: 70%;
+  background: #94b5c0;
+  color: white;
   box-shadow: none;
-  border: 1px solid $dark-blue;
+  // border: 1px solid $dark-blue;
 }
