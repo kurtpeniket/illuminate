@@ -27,18 +27,24 @@ import "bootstrap";
 
 import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
-import { scroll } from 'components/scroll'
+// import { scroll } from 'components/scroll'
 import { initSortable } from '../plugins/init_sortable'
 import { loader } from 'components/loader'
+import { preventInsignificantClick } from "@rails/ujs";
 
 
 
 document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
-  initMapbox();
-  initSortable();
-  loader();
-  // scroll();
+  if (document.querySelector('#map')){
+    initMapbox();
+  }
+  if (document.querySelector('.favourites')){
+    initSortable();
+  };
+  if (document.querySelector('.preloader')){
+    loader();
+  };
   if (sliderTag) {
     slider();
   };

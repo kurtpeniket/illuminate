@@ -4,7 +4,7 @@
   </div>
   <div id="intro">
     <p>How many coders does it take to change a lightbulb?</p>
-    <p><%= link_to "Upload Photo", lightbulbs_search_path, class: "btn btn-lg btn-ghost mt-5 mr-2" %></p>
+    <p><%= link_to "Upload Photo", lightbulbs_load_path, class: "btn btn-lg btn-ghost mt-5 mr-2", id: "search-btn"%></p>
   </div>
 </div>
 
@@ -38,14 +38,14 @@
     <div class="card-product lax lax_preset_fadeInOut:197.75:0 lax_preset_hueRotate:791:360 home-card">
         <div class="card-product-infos">
           <h2>No photo?</h2>
-          <p>Hit "get started" and try our finder tool</p>
+          <p>Hit <strong>get started</strong> below, and try our finder tool</p>
         </div>
         <%= image_tag "home_lb3.jpg", alt: "lightbulb_3" %>
       </div>
     </div>
   </div>
 
-  <div class="col-12 col-md-4 mt-3">
+  <div class="col-12 col-md-4 mt-3 mb-3">
     <div id="big-card" class="card-category w-100" style="background-image: url(<%= asset_path ('/assets/home_bulbs.jpg') %>)">
       <p><%= link_to "Get started", lightbulbs_path, class: "btn get-started btn-lg mt-3" %></p>
     </div>

@@ -3,16 +3,20 @@ class LightbulbsController < ApplicationController
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
   end
 
+  def load
+    # redirect_to lightbulbs_search_path
+  end
+
   def search
     # Code that scans photo for info
-    resource = OcrSpace::Resource.new(apikey: "3b97b6b34b88957")
-    result = resource.clean_convert url: "https://i.ibb.co/f9Vmk0F/ocr-data.png"
-    bulb_type = result.scan(/(led)/i).flatten.first.to_s
-    brightness = result.scan(/\d/i).join('').to_s
-    fitting = result.scan(/(screw)/i).flatten.first.to_s.capitalize
-    # bulb_type = "LED"
-    # brightness = "470"
-    # fitting = "Screw"
+    # resource = OcrSpace::Resource.new(apikey: ENV['OCR_API_KEY'])
+    # result = resource.clean_convert url: "https://i.ibb.co/f9Vmk0F/ocr-data.png"
+    # bulb_type = result.scan(/(led)/i).flatten.first.to_s
+    # brightness = result.scan(/\d/i).join('').to_s
+    # fitting = result.scan(/(screw)/i).flatten.first.to_s.capitalize
+    bulb_type = "LED"
+    brightness = "470"
+    fitting = "Screw"
 
     @lightbulbs = Lightbulb.where({ bulb_type: bulb_type, fitting: fitting, brightness: brightness })  
   end
