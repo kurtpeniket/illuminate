@@ -25,11 +25,11 @@
   .card-product {
     width: 100%;
     // background-color: #D6FFF6;
-    background-color: #F4FFFD;
+    background-color: #f7f6e7;
     padding: 10px;
     margin-left: 5%;
     margin-right: 10%;
-    border-radius: 5px;
+    border-radius: 10px;
     p {
       color: black;
       text-align: left;
@@ -50,10 +50,6 @@
     width: 100px;
     border-radius: 50%;
     box-shadow: 0px 0.6px 2px lightgrey;
-    // box-shadow: 0 1 1 10px rgba(#dddddd,1);
-    // -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-    // -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-    // box-shadow: 2px 2px 5px 0px rgba(0, 0, 1, 1);
   }
 }
 
