@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :lightbulbs, only: [:index, :show] do
       resources :favourites, only: [:create]
     end
-  resources :favourites
+  resources :favourites do
+    collection do
+      get :sort
+    end
+  end
 end

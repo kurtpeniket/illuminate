@@ -1,16 +1,44 @@
 import Sortable from 'sortablejs';
-// import Rails from '@rails/ujs'
+// import Rails from '@rails/ujs';
+
 
 const initSortable = () => {
     let el = document.getElementById('favourites');
     if (el) {
-      let sortable = Sortable.create(el, {
+      let sortable = new Sortable(el, {
       animation: 150,
-      // filter: '.filtered',
-      // onEnd: function (e) {console.log(e)}
-      });
-    }
+      onEnd: function (e) {
+        console.log(e.newDraggableIndex) ;
+        console.log(e.currentTarget)
+        console.log(e.item.dataset.id)
+        fetch(`http://localhost:3000/favourites/sort/?id=${e.item.dataset.id}&order=${e.newDraggableIndex}&old=${e.oldDraggableIndex}`)
+          .then(response => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
+
+        // })
+    })
   };
+}
+
+
+// $("#favourites").sortable({
+//     update: function(e, ui) {
+//       Rails.ajax({
+//         url: $(this).data("url"),
+//         type: "PATCH",
+//         data: $(this).sortable('serialize'),
+//       });
+//     }
+//   });
+
+
+
+
+
+
 
 
 export { initSortable };
