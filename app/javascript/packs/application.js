@@ -29,6 +29,7 @@ import { slider } from "components/slider"
 import { initMapbox } from '../plugins/init_mapbox'
 import { scroll } from 'components/scroll'
 import { initSortable } from '../plugins/init_sortable'
+import { loader } from 'components/loader'
 
 
 
@@ -36,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   const sliderTag = document.getElementById('slider');
   initMapbox();
   initSortable();
+  loader();
   // scroll();
   if (sliderTag) {
     slider();
