@@ -10,6 +10,9 @@ class LightbulbsController < ApplicationController
     bulb_type = result.scan(/(led)/i).flatten.first.to_s
     brightness = result.scan(/\d/i).join('').to_s
     fitting = result.scan(/(screw)/i).flatten.first.to_s.capitalize
+    # bulb_type = "LED"
+    # brightness = "470"
+    # fitting = "Screw"
 
     @lightbulbs = Lightbulb.where({ bulb_type: bulb_type, fitting: fitting, brightness: brightness })  
   end
