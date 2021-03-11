@@ -68,3 +68,5 @@ gem 'rails_admin', '~> 2.0'
 
 gem 'nokogiri'
 gem 'open-uri'
+
+gem 'ocr_space'

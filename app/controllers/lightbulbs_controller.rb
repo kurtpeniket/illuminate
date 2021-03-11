@@ -1,9 +1,17 @@
 class LightbulbsController < ApplicationController
   def index
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
-    # redirect_to lightbulbs_path
-    # @queried = params[:bulb] || params[:fitting] || params[:brightness]
-    #@lightbulb = Lightbulb.first only if there is a search...
+  end
+
+  def search
+    # Code that scans photo for info
+    resource = OcrSpace::Resource.new(apikey: "3b97b6b34b88957")
+    result = resource.clean_convert url: "https://i.ibb.co/f9Vmk0F/ocr-data.png"
+    bulb_type = result.scan(/(led)/i).flatten.first.to_s
+    brightness = result.scan(/\d/i).join('').to_s
+    fitting = result.scan(/(screw)/i).flatten.first.to_s.capitalize
+
+    @lightbulbs = Lightbulb.where({ bulb_type: bulb_type, fitting: fitting, brightness: brightness })  
   end
 
   def show
