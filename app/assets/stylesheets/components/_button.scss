@@ -45,8 +45,8 @@
     .fa-heart {
       color: #f5c0c0;
       position: relative;
-      left: 60px;
-      top: 10px;
+      left: 65px;
+      bottom: 70px;
     }
   }
 
@@ -75,7 +75,14 @@
 
   .btn-help {
     background-color: transparent;
+    position: relative;
+    bottom: 65px;
+    left: 40px;
     // border: 1px solid grey;
     // border-radius: 8px;
     // width: 30px !important;
+  }
+
+  .info{
+    color: $yellow;
   }
