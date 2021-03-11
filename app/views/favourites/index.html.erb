@@ -2,13 +2,13 @@
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
       <h1><center>Favourites</h1></center>
-      <h5><center>Organise your favourites below!</center></h5>
+      <h5 id="favourites-tagline"><center>Organise your favourites by room!</center></h5>
       <ul id="favourites" data-url="<%= sort_favourites_path %>">
         <% @favourites.order(order: :asc).each do |favourite| %>
           <li data-id="<%= favourite.id %>">
             <div class="row justify-content-center m-2">
               <% if favourite.room %>
-                <h1><%= favourite.room %></h1>
+                <h3 class="bg-light rooms-header"><%= favourite.room %></h3>
               <% else %>
                 <div class="col-12 col-md-8">
                   <div id="small-card" class="row m-2">
@@ -22,43 +22,42 @@
                         </button>
                           <p><%= link_to "", favourite_path(favourite.id), method: :delete, class: "fas fa-trash-alt"%></p>
                         <!-- Modal -->
-                        <div class="modal fade favourites-modal" id="<%= 'bulb-modal' + favourite.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header favourites-header">
-                                <h3 class="modal-title favourite-title w-50" id="exampleModalLabel"><%= favourite.lightbulb.brand%></h3>
-                                <%= if favourite.lightbulb.brand == 'Screwfix'
-                                  image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
-                                  else
-                                  image_tag "b&q.png", class:"card-trip-user avatar-bordered"
-                                  end %>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body d-flex justify-content-between ">
-                                <div>
-                                  <h6 class="favourite-properties"><%= favourite.lightbulb.bulb_type%></h6>
-                                  <h6 class="favourite-properties"><%= favourite.lightbulb.fitting%></h6>
-                                  <h6 class="favourite-properties"><%= favourite.lightbulb.brightness%> lumens</h6>
-                                </div>
-                                <div class="favourite-price">
-                                  <h3><%= favourite.lightbulb.price%></h3>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <%= link_to "Buy now", favourite.lightbulb.url, class: "btn btn-primary" %>
-                              </div>
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade favourites-modal" id="<%= 'bulb-modal' + favourite.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content bg-light">
+                      <div class="modal-header favourites-header">
+                        <h3 class="modal-title favourite-title w-50" id="exampleModalLabel"><%= favourite.lightbulb.brand%></h3>
+                        <%= if favourite.lightbulb.brand == 'Screwfix'
+                          image_tag "screwfix.png", class:"card-trip-user avatar-bordered"
+                        else
+                          image_tag "b&q.png", class:"card-trip-user avatar-bordered"
+                        end %>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-between ">
+                        <div>
+                          <h6 class="favourite-properties"><%= favourite.lightbulb.bulb_type%></h6>
+                          <h6 class="favourite-properties"><%= favourite.lightbulb.fitting%></h6>
+                          <h6 class="favourite-properties"><%= favourite.lightbulb.brightness%> lumens</h6>
                         </div>
+                        <div class="favourite-price">
+                          <h3><%= favourite.lightbulb.price%></h3>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <%= link_to "Buy now", favourite.lightbulb.url, class: "btn btn-primary" %>
                       </div>
                     </div>
                   </div>
                 </div>
               <% end %>
-
             </div>
           </li>
         <% end %>

@@ -17,7 +17,7 @@ class FavouritesController < ApplicationController
   def destroy
     @favourite = Favourite.find(params[:id])
     if @favourite.destroy
-      flash[:alert] = "Favorite removed!"
+      flash[:alert] = "Favourite removed!"
       redirect_to favourites_path
     end
   end
