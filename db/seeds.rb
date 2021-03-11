@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 puts 'Cleaning DB...'
+User.destroy_all
 Favourite.destroy_all
 Lightbulb.destroy_all
 Shop.destroy_all
