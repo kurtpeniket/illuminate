@@ -1,6 +1,10 @@
 class LightbulbsController < ApplicationController
   def index
-    @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
+    if params[:bulb_type || :fitting || :brightness].nil?
+      @lightbulbs = nil
+    else
+      @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
+    end
   end
 
   def load
@@ -18,7 +22,7 @@ class LightbulbsController < ApplicationController
     brightness = "470"
     fitting = "Screw"
 
-    @lightbulbs = Lightbulb.where({ bulb_type: bulb_type, fitting: fitting, brightness: brightness })  
+    @lightbulbs = Lightbulb.where({ bulb_type: bulb_type, fitting: fitting, brightness: brightness })
   end
 
   def show
@@ -27,7 +31,7 @@ class LightbulbsController < ApplicationController
     @shops = Shop.all
 
     # Search for similar to above but different same brand
-    @similar_bulb = Lightbulb.where(bulb_type: @lightbulb[:bulb_type], fitting: @lightbulb[:fitting], brand: "B&Q") 
+    @similar_bulb = Lightbulb.where(bulb_type: @lightbulb[:bulb_type], fitting: @lightbulb[:fitting], brand: "B&Q")
     #&& Lightbulb.where.not(brand: @lightbulb[:brand])
 
     # the `geocoded` scope filters only lightbulbs with coordinates (latitude & longitude)
