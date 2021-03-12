@@ -1,6 +1,16 @@
-<h1>Upload</h1>
-
-<%= simple_form_for :search, url: lightbulbs_load_path, method: :get do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit  %>
-<% end %>
+<div class="container upload-container ">
+  <div class="row justify-content-center my-3">
+    <div class="col-6 ">
+      <div class="form rounded " >
+      <h2 class="text-center mb-4 border-bottom p-3 border-primary">Upload a photo of your bulb</h2>
+        <%= image_tag "formbulb.jpeg", alt: "alttext", class: "photo" %>
+        <div class="content">
+          <%= simple_form_for :search, url: lightbulbs_load_path, method: :get do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, "Submit", class: "btn btn-primary d-block" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
