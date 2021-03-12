@@ -1,8 +1,7 @@
 <div class="container index-container favourites mt-5 ">
   <div class="row justify-content-center my-3 ml-2">
     <div class="col-sm-12">
-      <h1><center>Favourites</h1></center>
-      <h5 id="favourites-tagline"><center>Organise your favourites by room!</center></h5>
+      <h1 class="p-3 text-center border-bottom border-primary"><center>My Favourites</h1></center>
       <ul id="favourites" data-url="<%= sort_favourites_path %>">
         <% @favourites.order(order: :asc).each do |favourite| %>
           <li data-id="<%= favourite.id %>">
