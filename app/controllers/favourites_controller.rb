@@ -10,7 +10,8 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.new(user_id: @user, lightbulb_id: @lightbulb.id)
     if @favourite.save
       flash[:notice] = "Saved to favourites!"
-      redirect_to lightbulbs_path anchor: "title"
+      # redirect_to lightbulbs_path anchor: "title"
+      redirect_to request.referrer
     end
   end
 
