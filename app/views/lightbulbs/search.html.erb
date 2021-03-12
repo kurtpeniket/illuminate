@@ -1,8 +1,7 @@
 
 <div class="container index-container">
-  <div class="p-3">
-    <%= link_to "Go to bulb finder", lightbulbs_path, class: "btn btn-primary" %>
-  </div>
+  <h3 class="text-center mt-3 mb-4 border-bottom p-3 border-primary results">Results</h3>
+  <h5><center>This is what we found...</center></h5>
   <% if @lightbulbs.count > 0 %>
       <% @lightbulbs.each do |lightbulb| %>
         <%= link_to lightbulb_path(lightbulb), class: "link" do  %>
@@ -12,7 +11,7 @@
                 <div class="card-product">
                     <%= if lightbulb.image.nil?
                         image_tag 'home_bulbs.jpg'
-                      else 
+                      else
                         image_tag lightbulb.image
                       end
                       %>
@@ -42,4 +41,9 @@
         </div>
       </div>
     <% end %>
+    <br>
+    <h5><center>Not quite right?</center></h5>
+    <div class="p-2">
+      <%= link_to "Go to bulb finder", lightbulbs_path, class: "btn btn-primary" %>
+    </div>
 </div>
