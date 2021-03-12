@@ -2,10 +2,10 @@ require 'nokogiri'
 require 'open-uri'
 
 puts 'Cleaning DB...'
-User.destroy_all
 Favourite.destroy_all
-Lightbulb.destroy_all
 Shop.destroy_all
+Lightbulb.destroy_all
+User.destroy_all
 puts 'Seeding new DB...'
 
 ScrapeJob.perform_now
