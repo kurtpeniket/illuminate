@@ -1,0 +1,6 @@
+<h1>Upload</h1>
+
+<%= simple_form_for :search, url: lightbulbs_load_path, method: :get do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit  %>
+<% end %>
