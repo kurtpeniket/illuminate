@@ -70,3 +70,5 @@ gem 'nokogiri'
 gem 'open-uri'
 
 gem 'ocr_space'
+
+gem 'cloudinary', '~> 1.16.0'
