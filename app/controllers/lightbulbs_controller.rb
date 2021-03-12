@@ -3,6 +3,10 @@ class LightbulbsController < ApplicationController
     @lightbulbs = Lightbulb.filter(params.slice(:bulb_type, :fitting, :brightness))
   end
 
+  def upload
+    
+  end
+
   def load
     # redirect_to lightbulbs_search_path
   end
