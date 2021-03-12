@@ -11,13 +11,12 @@ const initSortable = () => {
         console.log(e.newDraggableIndex) ;
         console.log(e.currentTarget)
         console.log(e.item.dataset.id)
-        fetch(`http://localhost:3000/favourites/sort/?id=${e.item.dataset.id}&order=${e.newDraggableIndex}&old=${e.oldDraggableIndex}`)
+        fetch(`https://localhost:3000/favourites/sort/?id=${e.item.dataset.id}&order=${e.newDraggableIndex}&old=${e.oldDraggableIndex}`)
           .then(response => response.json())
           .then((data) => {
             console.log(data);
           });
       }
-
         // })
     })
   };
