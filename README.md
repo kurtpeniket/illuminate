@@ -1,1 +1,4 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+## Illuminate
+### A mobile focused web app for finding the correct light bulb.
+
+![Illuminate_mobile](https://i.ibb.co/QfXWytN/illuminate1.png)
