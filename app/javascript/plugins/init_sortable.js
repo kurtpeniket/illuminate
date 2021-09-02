@@ -8,10 +8,10 @@ const initSortable = () => {
       let sortable = new Sortable(el, {
       animation: 150,
       onEnd: function (e) {
-        console.log(e.newDraggableIndex) ;
-        console.log(e.currentTarget)
-        console.log(e.item.dataset.id)
-        fetch(`https://www.illuminate-app.tech/favourites/sort/?id=${e.item.dataset.id}&order=${e.newDraggableIndex}&old=${e.oldDraggableIndex}`)
+        // console.log(e.newDraggableIndex);
+        // console.log(e.currentTarget)
+        // console.log(e.item.dataset.id)
+        fetch(`http://www.illuminate-app.tech/favourites/sort/?id=${e.item.dataset.id}&order=${e.newDraggableIndex}&old=${e.oldDraggableIndex}`)
           .then(response => response.json())
           .then((data) => {
             console.log(data);
@@ -21,23 +21,6 @@ const initSortable = () => {
     })
   };
 }
-
-
-// $("#favourites").sortable({
-//     update: function(e, ui) {
-//       Rails.ajax({
-//         url: $(this).data("url"),
-//         type: "PATCH",
-//         data: $(this).sortable('serialize'),
-//       });
-//     }
-//   });
-
-
-
-
-
-
 
 
 export { initSortable };
